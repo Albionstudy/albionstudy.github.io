@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Participants &amp; Data — ALBION Study</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .data-body { max-width: var(--max); margin: 0 auto; padding: 5vw; }
+
+    /* sidebar nav */
+    .data-layout { display: grid; grid-template-columns: 220px 1fr; gap: 4vw; align-items: start; }
+    .sticky-nav { position: sticky; top: 80px; }
+    .side-nav { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .side-nav a { display: block; padding: 8px 14px; border-radius: 8px; color: var(--ink-2); font-size: 0.88rem; text-decoration: none; font-weight: 400; transition: background .15s, color .15s; }
+    .side-nav a:hover, .side-nav a.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+    .side-nav-label { font-size: 0.72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; padding: 0 14px; margin-top: 1rem; margin-bottom: 4px; }
+
+    /* sections */
+    .data-section { margin-bottom: 5rem; scroll-margin-top: 90px; }
+    .data-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 2.2vw, 2.2rem); color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.8rem; }
+    .data-section > p { color: var(--ink-2); font-size: 1rem; font-weight: 300; line-height: 1.75; max-width: 75ch; margin-bottom: 1.5rem; }
+
+    /* info box */
+    .info-box { background: var(--accent-light); border-radius: var(--radius-lg); padding: 1.5rem 2rem; margin-bottom: 1.5rem; max-width: 100%; }
+    .info-box p { color: var(--accent); font-size: 0.92rem; font-weight: 400; line-height: 1.65; }
+    .info-box strong { font-weight: 600; }
+
+    /* two-col content */
+    .content-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+
+    /* specimen cards */
+    .specimen-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-bottom: 2rem; }
+    .specimen-card { background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .specimen-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent); margin-bottom: 0.8rem; }
+    .specimen-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .specimen-card li { font-size: 0.88rem; color: var(--ink-2); font-weight: 300; display: flex; align-items: center; gap: 8px; }
+    .specimen-card li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent-mid); flex-shrink:0; }
+
+    /* table */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1.5rem 0; }
+    .data-table th { background: var(--ink); color: var(--paper); padding: 10px 14px; text-align: left; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.04em; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--ink-2); font-weight: 300; vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--paper-2); }
+    .data-table td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+
+    /* tag list */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+    .tag-item { background: var(--paper-2); border: 1px solid var(--line); color: var(--ink-2); font-size: 0.8rem; font-weight: 400; padding: 5px 13px; border-radius: 100px; }
+    .tag-item.accent { background: var(--accent-light); color: var(--accent); border-color: rgba(45,106,95,.2); }
+
+    /* highlight strip */
+    .highlight-strip { background: var(--ink); color: var(--paper); border-radius: var(--radius-lg); padding: 2rem 2.5rem; margin: 2rem 0; display: flex; gap: 3rem; flex-wrap: wrap; }
+    .hs-item { flex: 1; min-width: 140px; }
+    .hs-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent-mid); display: block; }
+    .hs-label { font-size: 0.85rem; color: rgba(248,247,244,.55); font-weight: 300; }
+
+    @media(max-width:1000px){ .data-layout{grid-template-columns:1fr} .sticky-nav{display:none} }
+    @media(max-width:700px){ .specimen-cards{grid-template-columns:1fr 1fr} .content-2col{grid-template-columns:1fr} }
+    @media(max-width:480px){ .specimen-cards{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Research Data</div>
+    <h1>Participants &amp; Data</h1>
+    <p>Comprehensive details on who participates in ALBION, what we measure, and how we collect, process, and store our multidimensional dataset.</p>
+  </div>
+</div>
+
+<div class="data-body">
+  <div class="data-layout">
+
+    <!-- SIDEBAR NAV -->
+    <div class="sticky-nav">
+      <p class="side-nav-label">Jump to</p>
+      <ul class="side-nav">
+        <li><a href="#participants">Participants</a></li>
+        <li><a href="#protocol">Protocol</a></li>
+        <li><a href="#clinical">Clinical Assessment</a></li>
+        <li><a href="#lifecycle-factors">Lifestyle Assessment</a></li>
+        <li><a href="#diet">Diet Assessment</a></li>
+        <li><a href="#other-measurements">Physical Assessment</a></li>
+        <li><a href="#biomarkers">Biomarkers</a></li>
+        <li style="padding-left:12px;"><a href="#csf" style="font-size:0.82rem;">↳ Cerebrovascular Fluid analyses</a></li>
+        <li style="padding-left:12px;"><a href="#blood" style="font-size:0.82rem;">↳ Blood</a></li>
+        <li style="padding-left:12px;"><a href="#stool" style="font-size:0.82rem;">↳ Stool</a></li>
+        <li style="padding-left:12px;"><a href="#imaging" style="font-size:0.82rem;">↳ Neuroimaging &amp; EEG</a></li>
+        <li style="padding-left:12px;"><a href="#lifestyle" style="font-size:0.82rem;">↳ Wearables</a></li>
+        <li style="padding-left:12px;"><a href="#genetics" style="font-size:0.82rem;">↳ Genetics</a></li>
+        <li style="padding-left:12px;"><a href="#biomarker-ns" style="font-size:0.82rem;">↳ Sample Sizes</a></li>
+      </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- PARTICIPANTS -->
+      <div class="data-section" id="participants">
+        <div class="section-label">Who we study</div>
+        <h2>Participants</h2>
+        <p>The sample of the study consists of individuals aged 40 years or older who are either referred by other specialists or self-referred to the cognitive disorders outpatient clinic of a tertiary university hospital. These individuals may have subjective memory complaints or a positive family history, or they may be asymptomatic with a commitment to contributing to medical science.</p>
+
+<!--        <div class="info-box" style="max-width:none;">-->
+<!--          <p><strong>Inclusion criteria:</strong> Only those considered to be cognitively normal or who have at most Mild Cognitive Impairment (MCI) based on established diagnostic criteria, are included for the purposes of this study. <mark>Participants with dementia at baseline are not included.</mark>-->
+<!--            Patients with a diagnosis of dementia are not enrolled, i.e., were excluded from this study, as are patients with neurological, psychiatric, or medical conditions associated with a high risk of cognitive impairment.-->
+<!--          </p>-->
+<!--        </div>-->
+
+        <div class="info-box">
+          <p style="font-size:0.88rem; line-height:1.7;"><strong>Inclusion criteria:</strong> Only those considered to be cognitively normal or who have at most Mild Cognitive Impairment (MCI) based on established diagnostic criteria, are included for the purposes of this study.
+            Patients with a diagnosis of dementia are not enrolled, i.e., were excluded from this study, as are patients with neurological, psychiatric, or medical conditions associated with a high risk of cognitive impairment.</p>
+        </div>
+
+        <div class="highlight-strip">
+          <div class="hs-item"><span class="hs-num">382</span><span class="hs-label">Completed baseline (as of Jan 2026)</span></div>
+          <div class="hs-item"><span class="hs-num">~3 yrs</span><span class="hs-label">Mean follow-up duration</span></div>
+          <div class="hs-item"><span class="hs-num">Open</span><span class="hs-label">Continuously recruiting</span></div>
+          <div class="hs-item"><span class="hs-num">MCI max</span><span class="hs-label">Highest baseline diagnosis</span></div>
+        </div>
+
+        <h4 style="font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--ink); margin-bottom:.8rem; margin-top:2rem;">Participants per follow-up year</h4>
+        <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65; margin-bottom:1rem;">As of January 2026, 382 participants have completed their baseline assessment. The table below shows the number of participants at each follow-up year.</p>
+        <table class="data-table">
+          <thead><tr>
+            <th>Follow-up</th><th>0 yr (Baseline)</th><th>1 yr</th><th>2 yr</th><th>3 yr</th><th>4 yr</th><th>5 yr</th><th>6 yr</th><th>7 yr</th><th>8 yr</th>
+          </tr></thead>
+          <tbody><tr>
+            <td>N</td><td>184</td><td>39</td><td>53</td><td>34</td><td>26</td><td>18</td><td>18</td><td>8</td><td>2</td>
+          </tr></tbody>
+        </table>
+      </div>
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+      <!-- PROTOCOL -->
+      <div class="data-section" id="protocol">
+        <div class="section-label">Study design</div>
+        <h2>Protocol</h2>
+        <p>ALBION is a longitudinal study with multiple follow-up visits. Apart from the baseline
+          assessment, follow-up visits are performed either after 1,5 or after 3 years, depending on
+          the age and the diagnosis participants had at their previous visit. Click a visit on the timeline to explore what is the assessments performed at every visit.</p>
+
+        <style>
+          .pt-wrap { margin-top: 2rem; }
+          .pt-track-area { position: relative; height: 60px; margin: 0 20px; }
+          .pt-line { position: absolute; top: 50%; left: 0; right: 0; height: 3px; background: var(--line); transform: translateY(-50%); border-radius: 2px; }
+          .pt-fill { position: absolute; top: 50%; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); transform: translateY(-50%); border-radius: 2px; transition: width .4s ease; width: 0%; }
+          .pt-nodes { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+          .pt-node { position: absolute; top: 50%; transform: translate(-50%, -50%); cursor: pointer; }
+          .pt-node-inner {
+            width: 22px; height: 22px; border-radius: 50%;
+            border: 2px solid var(--accent); background: white;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .2s; font-size: 0; color: white; font-weight: 500;
+          }
+          .pt-node.big .pt-node-inner { width: 32px; height: 32px; background: var(--accent); }
+          .pt-node.selected .pt-node-inner { box-shadow: 0 0 0 5px rgba(45,106,95,0.18); }
+          .pt-node:hover .pt-node-inner { transform: scale(1.1); }
+          .pt-node-label { position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%); font-size: 0.72rem; color: var(--ink-3); white-space: nowrap; font-weight: 500; }
+
+          .pt-card { margin-top: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--line); background: white; overflow: hidden; animation: ptIn .22s ease; }
+          @keyframes ptIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+          .pt-card-top { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+          .pt-card-top.full { background: rgba(45,106,95,0.05); border-left: 4px solid var(--accent); }
+          .pt-card-top.sel  { background: rgba(90,158,143,0.05); border-left: 4px solid var(--accent-mid); }
+          .pt-card-time { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); }
+          .pt-badge { font-size: 0.72rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; letter-spacing: 0.03em; }
+          .pt-badge.all { background: var(--accent-light); color: var(--accent); }
+          .pt-badge.sel { background: #e0f2ee; color: #2d7a6a; }
+          .pt-card-body { padding: 1.3rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+          .pt-card-body.single { grid-template-columns: 1fr; }
+          .pt-section-head { font-size: 0.7rem; font-weight: 500; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.7rem; }
+          .pt-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+          .pt-list li { font-size: 0.9rem; color: var(--ink-2); font-weight: 300; display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
+          .pt-list li .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-mid); flex-shrink: 0; margin-top: 6px; }
+          .pt-list li.note { color: var(--accent); font-style: italic; font-size: 0.85rem; }
+          .pt-list li.note .dot { background: var(--accent-light); border: 1px solid var(--accent); }
+          .pt-phone { margin-top: 1rem; padding: 0.7rem 1rem; border-radius: var(--radius); background: var(--paper-2); font-size: 0.85rem; color: var(--ink-3); font-style: italic; line-height: 1.5; }
+          .pt-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.2rem; }
+          .pt-nav-btn { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 500; color: var(--accent); background: none; border: 1px solid rgba(45,106,95,0.25); border-radius: 100px; padding: 7px 18px; cursor: pointer; font-family: inherit; transition: background .15s, border-color .15s; }
+          .pt-nav-btn:hover { background: var(--accent-light); border-color: var(--accent); }
+          .pt-nav-btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+          .pt-step { font-size: 0.8rem; color: var(--ink-3); }
+          @media(max-width:700px){ .pt-card-body { grid-template-columns: 1fr; } }
+        </style>
+
+        <div class="pt-wrap">
+          <div class="pt-track-area">
+            <div class="pt-line"></div>
+            <div class="pt-fill" id="pt-fill"></div>
+            <div class="pt-nodes" id="pt-nodes"></div>
+          </div>
+          <div id="pt-card"></div>
+          <div class="pt-nav">
+            <button class="pt-nav-btn" id="pt-prev" onclick="ptGo(-1)">&#8592; Previous</button>
+            <span class="pt-step" id="pt-step"></span>
+            <button class="pt-nav-btn" id="pt-next" onclick="ptGo(1)">Next &#8594;</button>
+          </div>
+        </div>
+
+        <script>
+          (function(){
+            var visits = [
+              { time:'0 years', label:'0 yr', type:'full', badge:'Baseline Assessment',
+                forList: null,
+                data: ['Neurological assessment','Neuropsychological assessment','Questionnaires: sleep, leisure time activity, subjective cognitive complaints, physical activity, anxiety, depression','Anthropometrics','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy'],
+                note: null, phone: null },
+              { time:'1.5 years', label:'1.5 yr', type:'sel', badge:'Selected participants',
+                forList: ['Age above 70','MCI diagnosis at previous assessment','Irrespectively of age and diagnosis have at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)'],
+                data: ['Neurological assessment','Neuropsychological assessment'],
+                note: null, phone: 'Phone calls are made for participants who will not perform this visit.' },
+              { time:'3 years', label:'3 yr', type:'full', badge:'All participants',
+                forList: null,
+                data: ['Same as baseline'],
+                note: 'Lumbar puncture and MRI not included', phone: null },
+              { time:'4.5 years', label:'4.5 yr', type:'sel', badge:'Selected participants',
+                forList: ['Age above 70','MCI diagnosis at previous assessment','Irrespectively of age and diagnosis have at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)'],
+                data: ['Neurological assessment','Neuropsychological assessment'],
+                note: null, phone: 'Phone calls are made for participants who will not perform this visit.' },
+              { time:'6 years', label:'6 yr', type:'full', badge:'All participants',
+                forList: null,
+                data: ['Same assessments as baseline'],
+                note: null, phone: null },
+              { time:'7.5 years', label:'7.5 yr', type:'sel', badge:'Selected participants',
+                forList: ['Age above 70','MCI diagnosis at previous assessment','Irrespectively of age and diagnosis have at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)'],
+                data: ['Neurological assessment','Neuropsychological assessment'],
+                note: null, phone: 'Phone calls are made for participants who will not perform this visit.' },
+              { time:'9 years', label:'9 yr', type:'full', badge:'All participants',
+                forList: null,
+                data: ['Same assessments as baseline'],
+                note: 'Lumbar puncture and MRI not included', phone: null }
+            ];
+            var current = 0;
+
+            function buildNodes() {
+              var container = document.getElementById('pt-nodes');
+              container.innerHTML = '';
+              visits.forEach(function(v, i) {
+                var pct = (i / (visits.length - 1)) * 100;
+                var wrap = document.createElement('div');
+                wrap.className = 'pt-node' + (v.type === 'full' ? ' big' : '');
+                wrap.id = 'pt-nd-' + i;
+                wrap.style.left = pct + '%';
+                wrap.onclick = function(){ ptSet(i); };
+                var inner = document.createElement('div');
+                inner.className = 'pt-node-inner';
+                var lbl = document.createElement('div');
+                lbl.className = 'pt-node-label';
+                lbl.textContent = v.label;
+                wrap.appendChild(inner);
+                wrap.appendChild(lbl);
+                container.appendChild(wrap);
+              });
+            }
+
+            function renderCard(v) {
+              var hasFor = v.forList && v.forList.length > 0;
+              var forHTML = hasFor ? '<div><div class="pt-section-head">Performed for</div><ul class="pt-list">' +
+                      v.forList.map(function(f){ return '<li><span class="dot"></span>' + f + '</li>'; }).join('') +
+                      '</ul></div>' : '';
+              var dataHTML = '<div><div class="pt-section-head">Data collected</div><ul class="pt-list">' +
+                      v.data.map(function(d){ return '<li><span class="dot"></span>' + d + '</li>'; }).join('') +
+                      (v.note ? '<li class="note"><span class="dot"></span>' + v.note + '</li>' : '') +
+                      '</ul>' +
+                      (v.phone ? '<div class="pt-phone">' + v.phone + '</div>' : '') +
+                      '</div>';
+              return '<div class="pt-card"><div class="pt-card-top ' + v.type + '">' +
+                      '<div class="pt-card-time">' + v.time + '</div>' +
+                      '<span class="pt-badge ' + (v.type==='full'?'all':'sel') + '">' + v.badge + '</span>' +
+                      '</div><div class="pt-card-body' + (!hasFor?' single':'') + '">' +
+                      forHTML + dataHTML + '</div></div>';
+            }
+
+            function ptSet(i) {
+              current = i;
+              document.getElementById('pt-card').innerHTML = renderCard(visits[i]);
+              var pct = (i / (visits.length - 1)) * 100;
+              document.getElementById('pt-fill').style.width = pct + '%';
+              for (var j = 0; j < visits.length; j++) {
+                var nd = document.getElementById('pt-nd-' + j);
+                var cls = 'pt-node' + (visits[j].type==='full'?' big':'') + (j===i?' selected':'');
+                nd.className = cls;
+              }
+              document.getElementById('pt-prev').disabled = i === 0;
+              document.getElementById('pt-next').disabled = i === visits.length - 1;
+              document.getElementById('pt-step').textContent = 'Visit ' + (i+1) + ' of ' + visits.length;
+            }
+
+            window.ptGo = function(dir) { ptSet(Math.max(0, Math.min(visits.length-1, current+dir))); };
+
+            buildNodes();
+            ptSet(0);
+          })();
+        </script>
+
+      </div>
+
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+      <!-- CLINICAL DATA -->
+      <div class="data-section" id="clinical">
+        <div class="section-label">Clinical data</div>
+        <h2>Clinical Assessments</h2>
+        <p>Comprehensive, standardised assessments are performed at each visit by trained clinicians and neuropsychologists.</p>
+
+        <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Demographics</h4>
+        <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65;">Age, sex, education (years), marital status, employment status, address.</p>
+
+        <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Neurological Examination</h4>
+        <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65;">Medical history, medications, family history, neurological examination and completion of the following scales:</p>
+        <div class="tag-list" style="margin-top:.8rem;">
+          <span class="tag-item accent">NPI</span><span class="tag-item accent">HACHINSKI</span><span class="tag-item accent">UPDRS</span><span class="tag-item accent">IADL</span><span class="tag-item accent">CDR</span>
+        </div>
+
+        <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Neuropsychological Assessment</h4>
+        <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65; margin-bottom:1.2rem;">Trained psychometricians administer a battery of neuropsychological tests assessing five cognitive domains: memory, language, attention-speed, executive functioning, and visuospatial perception. The neuropsychological tests used in our study are presented in the following table:</p>
+
+        <table class="data-table">
+          <thead><tr><th>Cognitive Domain</th><th>Cognitive Tests</th></tr></thead>
+          <tbody>
+          <tr><td>Global</td><td>Mini-Mental State Examination; Addenbrooke's Cognitive Examination Revised (ACE-R)</td></tr>
+          <tr><td>Intelligence / Pre-morbid level</td><td>Vocabulary</td></tr>
+          <tr><td>Attention &amp; Information Processing Speed</td><td>Trail-making test A; Digit Span Forwards</td></tr>
+          <tr><td>Executive Functioning</td><td>Trail-making test B; Stroop Test; Digit Span Backwards</td></tr>
+          <tr><td>Visuoperceptual ability</td><td>Medical College of Georgia Complex Figure Test - copy condition; Visuospatial component of ACE-R</td></tr>
+          <tr><td>Verbal Memory</td><td>Greek verbal learning test (immediate &amp; delayed recall); Story recall (immediate &amp; delayed)</td></tr>
+          <tr><td>Nonverbal Memory</td><td>Medical College of Georgia Complex Figure Test  (immediate &amp; delayed recall)</td></tr>
+          <tr><td>Language</td><td>Semantic &amp; phonological verbal fluency component of ACE-R; Language component of ACE-R; 40-item naming test</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Diagnostic Consensus Meetings</h4>
+        <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65;">Clinicians involved in ALBION perform regular diagnostic consensus meetings where neurologists and neuropsychologists review participants' data to establish diagnoses of dementia and MCI, following international criteria and guidelines. These multidisciplinary meetings ensure a consensus-based approach for accurate clinical and cognitive status diagnoses, drawing on clinical evaluations, neuropsychological testing, and interviews with all researchers involved.</p>
+      </div>
+
+        <hr class="divider" style="margin-bottom:4rem;"/>
+
+        <!-- CLINICAL DATA -->
+        <div class="data-section" id="lifecycle-factors">
+          <div class="section-label">Lifestyle Factors</div>
+          <h2>Lifestyle Assessment</h2>
+          <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65; margin-bottom:1.2rem;">Various aspects of lifestyle including subjective cognitive complaints, depression, anxiety, leisure time activities, physical activity, sleep and diet are assessed with the use of appropriate questionnaires.</p>
+          <div class="tag-list">
+            <span class="tag-item">Subjective cognitive complaints</span>
+            <span class="tag-item">Depression</span>
+            <span class="tag-item">Anxiety</span>
+            <span class="tag-item">Leisure time activities</span>
+            <span class="tag-item">Physical activity</span>
+            <span class="tag-item">Sleep</span>
+          </div>
+          <p style="color:var(--ink-2); font-size:0.9rem; font-weight:300; line-height:1.65; margin-top:0.8rem;">All assessed with the use of appropriate questionnaires.</p>
+        </div>
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- DIET -->
+          <div class="data-section" id="diet">
+            <div class="section-label">Nutritional data</div>
+            <h2>Diet Assessment</h2>
+            <p>Dietary intake is assessed through four 24-h dietary recalls; some of them administered on-site and some by telephone. Three of the recalls refer to weekdays and one to a weekend day. Specifically, trained dieticians ask the participants to report in detail all foods and beverages consumed during the previous day, defined as the timeframe between waking up in the morning and going to bed at night, using the multiple pass approach. Recall data are analyzed in terms of nutrients using the dietary analysis software Nutritionist ProTM (2007, Axxya Systems, Texas, USA).</p>
+
+            <div class="content-2col">
+              <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem;">Additional information recorded</h4>
+                <div class="tag-list">
+                  <span class="tag-item">Water intake (previous day)</span>
+                  <span class="tag-item">Dietary supplement use</span>
+                  <span class="tag-item">Weight-loss diet status</span>
+                  <span class="tag-item">Eating time &amp; location</span>
+                  <span class="tag-item">Concurrent activities</span>
+                  <span class="tag-item">Eating companion</span>
+                </div>
+              </div>
+              <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem;">Derived outputs</h4>
+                <div class="tag-list">
+                  <span class="tag-item accent">Macro &amp; micro-nutrient intake</span>
+                  <span class="tag-item accent">Food groups consumption (daily &amp; per 2 hrs)</span>
+                  <span class="tag-item accent">Adherence to dietary patterns (Mediterranean diet, MIND diet)</span>
+                  <span class="tag-item accent">Consumption of breakfast &amp; dinner</span>
+                  <span class="tag-item accent">Eating habits/behaviors</span>
+                </div>
+              </div>
+            </div>
+            <p style="color:var(--ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Food groups assessed include: dairy products, cereals, fruits, vegetables, meat, fish, legumes, added fats, alcoholic beverages, stimulants, and sweets.</p>
+            <p style="color:var(--ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Eating habits/behaviors assessed include: fermented foods, ultra-processed foods, dietary variety, variety of vegetables and fruits</p>
+          </div>
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- PHYSICAL MEASUREMENTS -->
+          <div class="data-section" id="other-measurements">
+            <div class="section-label">Physical measurements</div>
+            <h2>Physical Assessment</h2>
+            <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:2rem;">At each visit, participants undergo a series of standardised physical measurements assessing both anthropometric characteristics and functional performance of the upper and lower extremities.</p>
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+              <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Anthropometrics</h4>
+                <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75;">Weight (in kg) and height (in cm) are measured at each visit with a scale and with a portable stadiometer, respectively.</p>
+              </div>
+              <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Dynamometer</h4>
+                <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75;">Physical strength of the upper extremities is estimated using a handgrip electronic dynamometer.</p>
+              </div>
+              <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Gait Speed</h4>
+                <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75;">Physical performance of the lower extremities is assessed with the 4-m measured walk.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+      <!-- BIOMARKERS -->
+      <div class="data-section" id="biomarkers">
+        <div class="section-label">Molecular data</div>
+        <h2>Biomarkers</h2>
+        <p>Biomarkers constitute a central component of the present study, providing objective and quantifiable indicators of underlying biological processes related to neurodegeneration, inflammation, oxidative stress, metabolic function, and genetic regulation.</p>
+
+
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:3rem;">
+
+          <a href="#csf" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#d4e8e4;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2d6a5f" stroke-width="1.5"><path d="M9 3v12a3 3 0 0 0 6 0V3"/><line x1="6" y1="3" x2="18" y2="3"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">CSF</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">Lumbar puncture -  Cerebrospinal Fluid</div>
+            </div>
+          </a>
+
+          <a href="#blood" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#fde8e0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5"><path d="M12 2L8 12a4 4 0 1 0 8 0Z"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">Blood</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">Blood biomarkers measurements</div>
+            </div>
+          </a>
+
+          <a href="#stool" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#e0f2e0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12q2-4 4-4t4 4q2 4-4 4-6 0-4-4z"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">Stool</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">Microbiome &amp; metabolomics</div>
+            </div>
+          </a>
+
+          <a href="#imaging" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#dbeafe;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3Q18 8 18 12Q18 16 12 21Q6 16 6 12Q6 8 12 3Z"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">MRI &amp; EEG</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">Brain imaging</div>
+            </div>
+          </a>
+
+          <a href="#lifestyle" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#fef3c7;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="3"/><line x1="11" y1="6" x2="13" y2="6"/><circle cx="12" cy="17" r="1"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">Wearables</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">Actigraphy &amp; WatchPAT</div>
+            </div>
+          </a>
+
+          <a href="#genetics" style="text-decoration:none;">
+            <div style="background:white; border:1px solid var(--line); border-radius:var(--radius-lg); padding:1.25rem 1rem; text-align:center; transition:background .2s, box-shadow .2s;" onmouseover="this.style.background='var(--paper-2)';this.style.boxShadow='0 4px 16px rgba(0,0,0,.06)'" onmouseout="this.style.background='white';this.style.boxShadow=''">
+              <div style="width:44px;height:44px;background:#ede9fe;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b21b6" stroke-width="1.5"><path d="M12 3c0 5-4 5-4 9a4 4 0 0 0 8 0c0-4-4-4-4-9z"/><path d="M8 21h8M10 17h4"/></svg>
+              </div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:4px;">Genetics</div>
+              <div style="font-size:.75rem;color:var(--ink-3);font-weight:300;">DNA &amp; RNA</div>
+            </div>
+          </a>
+
+        </div>
+<!--        <div class="specimen-cards">-->
+<!--          <div class="specimen-card">-->
+<!--            <h4>Cerebrospinal Fluid (CSF)</h4>-->
+<!--            <p style="color:var(&#45;&#45;ink-2); font-size:.88rem; font-weight:300; line-height:1.6; margin-bottom:1rem;">Lumbar puncture at baseline and repeated after 6 years. Primary biomarkers: Aβ42, T-tau, p-tau. Additional analyses (selected subsamples):</p>-->
+<!--            <ul>-->
+<!--              <li>Proteomics</li>-->
+<!--              <li>Metabolomics</li>-->
+<!--              <li>Oxidative stress markers (TAC, TBARS, GSH)</li>-->
+<!--              <li>Inflammation panel (YKL40, sAxl, sTyro3, CRP, sICAM1, sVCAM1, sTREM2, C1q, C3, C4, Factor B, Factor H, MIF, TNFR1, TNFR2)</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="specimen-card">-->
+<!--            <h4>Blood</h4>-->
+<!--            <p style="color:var(&#45;&#45;ink-2); font-size:.88rem; font-weight:300; line-height:1.6; margin-bottom:1rem;">Collected at baseline and select follow-up visits (3, 6 years+). Analyses (selected subsamples):</p>-->
+<!--            <ul>-->
+<!--              <li>AD biomarkers (e.g. ptau217) and mixed omics</li>-->
+<!--              <li>Exosome proteomics (all and neuronal)</li>-->
+<!--              <li>Metabolomics</li>-->
+<!--              <li>Oxidative stress markers (TAC, TBARS, GSH)</li>-->
+<!--              <li>Inflammation panel</li>-->
+<!--              <li>Epigenetics (whole genome sequencing)</li>-->
+<!--              <li>Phospholipids, PAF, Plasmalogens</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--          <div class="specimen-card">-->
+<!--            <h4>Stool</h4>-->
+<!--            <p style="color:var(&#45;&#45;ink-2); font-size:.88rem; font-weight:300; line-height:1.6; margin-bottom:1rem;">Standardised sterile collection kit. Analyses (selected subsamples):</p>-->
+<!--            <ul>-->
+<!--              <li>16S rRNA sequencing</li>-->
+<!--              <li>Metagenomics (whole metagenome sequencing)</li>-->
+<!--              <li>Targeted metabolomics panel</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+      </div>
+
+
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- CSF -->
+          <div class="data-section" id="csf">
+            <div class="section-label">Biological samples</div>
+            <h2>Lumbar Puncture — Cerebrospinal Fluid (CSF)</h2>
+
+            <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.5rem;">A lumbar puncture is performed in the baseline visit and is repeated after 6 years. The procedure of lumbar puncture as well as the collection, processing and storage of Cerebrovascular Fluid (CSF) is conducted according to international guidelines. CSF is primarily processed for biomarkers of neurodegeneration such as <strong style="font-weight:500;">Aβ42, T-tau, and p-tau</strong>. Apart from this, CSF (for selected participant subsamples) is used for other analyses, including:</p>
+
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Proteomics</strong>
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Metabolomics</strong>
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Oxidative Stress Markers:</strong> Analyses forTotal antioxidant capacity (TAC), thiobarbituric acid reactive substances (TBARS) and  Glutathione (GSH) levels
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Inflammation:</strong> Analyses for YKL40, sAxl, sTyro3, CRP, sICAM1, sVCAM1 , sTREM2, C1q, C3, C4, Factor B, Factor H, MIF, TNFR1, TNFR2 levels
+      </span>
+              </li>
+            </ul>
+          </div>
+
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- BLOOD -->
+          <div class="data-section" id="blood">
+            <div class="section-label">Biological samples</div>
+            <h2>Blood</h2>
+
+            <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.5rem;">Blood samples are collected at the baseline visit and at some of the follow-up visits (e.g., 3, 6 years, and subsequent time points as applicable). Samples are processed according to standardized protocols and stored at −80°C until analysis. Then, the following blood biomarkers (for selected participant subsamples) are measured:</p>
+
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Biomarkers of Neurodegeneration:</strong> AD biomarkers, e.g. ptau217, and mixed omics
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Exosomes (all and neuronal)</strong>
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Exosome Proteomics</strong>
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Metabolomics</strong>
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Oxidative Stress Markers:</strong> Analyses for total antioxidant capacity (TAC), thiobarbituric acid reactive substances (TBARS) and Glutathione (GSH) levels at baseline and at a follow-up visit
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Inflammation:</strong> Analyses for YKL40, sAxl, sTyro3, CRP, sICAM1, sVCAM1 , sTREM2, C1q, C3, C4, Factor B, Factor H, MIF, TNFR1, TNFR2
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Epigenetics:</strong> Whole genome epigenetics sequencing
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Phospholipoid, PAF, Plasmalogens:</strong> Lyso-PAF acetyltransferase activity (PAF-AT), PAF cholinephospho transferase activity (PAF-CPT), PAF levels
+      </span>
+              </li>
+            </ul>
+          </div>
+
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- STOOL -->
+          <div class="data-section" id="stool">
+            <div class="section-label">Biological samples</div>
+            <h2>Stool</h2>
+
+            <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.5rem;">Participants provide a stool sample after receiving a standardized stool collection kit to ensure sterile collection conditions and appropriate storage until delivery to our center. Stool (for selected participant subsamples) are processed for the following analyses:</p>
+
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">16S:</strong> Whole metagenome sequencing in stool samples
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Metagenomics:</strong> Whole metagenome sequencing in stool samples
+      </span>
+              </li>
+              <li style="display:flex; gap:8px; align-items:flex-start;">
+                <span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span>
+                <span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;">
+        <strong style="font-weight:500; color:var(--ink);">Metabolomics panel:</strong> Targeted metabolomics
+      </span>
+              </li>
+            </ul>
+          </div>
+
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- IMAGING -->
+          <div class="data-section" id="imaging">
+            <div class="section-label">Brain imaging</div>
+            <h2>Magnetic Resonance Imaging (MRI) &amp; Electroencephalogram (EEG)</h2>
+
+            <div style="margin-bottom:2.5rem;">
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Magnetic Resonance Imaging</h4>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.2rem;">All participants undergo a whole-brain imaging on a 3T Philips Achieva-Tx MR scanner (Philips, Best, The Netherlands) equipped with an eight-channel head coil. The imaging protocol contains basic clinical and research used sequences. MRI protocol uses traditional MRI sequences and collects information on brain structure:</p>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Atrophy</strong></span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Communication (DTI)</strong></span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Function (resting BOLD)</strong> </span></li>
+<!--                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(&#45;&#45;accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(&#45;&#45;ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(&#45;&#45;ink);">pcASL:</strong> Quantitative tissue perfusion without contrast agent.</span></li>-->
+<!--                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(&#45;&#45;accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(&#45;&#45;ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(&#45;&#45;ink);">T2-FLAIR / SWI:</strong> White matter lesion detection and microbleed identification.</span></li>-->
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Electroencephalogram</h4>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">A subsample of the participants are referred for EEG at the baseline visit. EEG recordings are acquired with a 10/20 international system of electrode placement method. All recordings are made with a Micromed SAM 25FO 32-channel headbox (Micromed, Italy) at a sampling rate of 1024 Hz (analogue high pass filter 0.15 Hz).</p>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:.8rem;">EEG data are analysed in two ways:</p>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Spectral analysis of posterior dominant rhythm (PDR) for 3s after each eye closure:</strong> This is a standard analysis, expected to show a gradual decrease in frequency, amplitude, and stability of the PDR with the progression of Alzheimer’s disease.</span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">A novel non-linear measure of eyes open versus eyes closed EEG synchronization:</strong> For this analysis, we are collaborating with the University of Sheffield, which has developed this method.</span></li>
+              </ul>
+            </div>
+
+          </div>
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <!-- WEARABLES -->
+          <div class="data-section" id="lifestyle">
+            <div class="section-label">Objective monitoring</div>
+            <h2>Wearable Devices</h2>
+
+            <div style="margin-bottom:2.5rem;">
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Actigraphy (7-day)</h4>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">Actiwatch 2 (Phillips-Respironics) and MotionWatch8 (CamnTech) are used to record sleep parameters (for selected participant subsamples). The wrist actigraphy is given to participants for 7 consecutive days. The actigraphy device, apart from the activity levels, can produce features regarding the sleep schedule variability the sleep quantity and create sleep quality statistics of the actigraphy sessions of each patient.</p>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">The actigraphy device software can identify the daily bed and get-up time and therefore calculate the total time spent in bed. Apart from the total time in bed, the actigraphy device determines:</p>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem; margin-bottom:1rem;">
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Total sleep time &amp; onset latency:</strong> the time it takes to transition from wakefulness to sleep.</span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Sleep efficiency:</strong> percentage of time spent asleep.</span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">WASO (Wakefulness After Sleep Onset):</strong> total number of minutes that a person is awake after the sleep onset.</span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Number of awakenings:</strong> total nocturnal awakenings recorded during the night.</span></li>
+                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Light exposure:</strong> measurements of white light exposure.</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">WatchPAT™ 300</h4>
+              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">The WatchPAT™ 300 device has been used (for selected participant subsamples). Watchpat data exports include an automated report with more than 80 variables regarding sleep parameters.</p>
+            </div>
+
+          </div>
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+          <div class="data-section" id="genetics">
+            <div class="section-label">Molecular genetics</div>
+            <h2>Genetics</h2>
+            <p>Genetic data from ALBION participants enables investigation of hereditary risk factors, polygenic burden, and gene–environment interactions in the context of neurodegeneration.</p>
+
+            <div class="tag-list">
+              <span class="tag-item accent">Imputed GWAS</span>
+              <span class="tag-item accent">RNA</span>
+<!--              <span class="tag-item accent">Whole genome epigenetics sequencing</span>-->
+<!--              <span class="tag-item accent">miRNA profiling</span>-->
+            </div>
+          </div>
+
+          <hr class="divider" style="margin-bottom:4rem;"/>
+
+      <!-- BIOMARKER SAMPLE SIZES -->
+      <div class="data-section" id="biomarker-ns">
+        <div class="section-label">Sample coverage</div>
+        <h2>Biomarker Sample Sizes</h2>
+        <p>The table below summarises the full spectrum of assessed biomarkers and the number of participants analysed per category.</p>
+<!--        <img src="biomarkers.png" alt="Biomarker categories overview" style="width:100%; max-width:700px; display:block; margin:0 auto 2rem; border-radius:var(&#45;&#45;radius-lg); border:1px solid var(&#45;&#45;line);"/>-->
+        <table class="data-table">
+          <thead><tr><th>Source</th><th>Biomarker / Analysis</th><th>N</th></tr></thead>
+          <tbody>
+          <tr><td>Wearables</td><td>Actigraphy</td><td>244</td></tr>
+          <tr><td>Wearables</td><td>WatchPAT (PAT)</td><td>140</td></tr>
+          <tr><td>CSF</td><td>Biomarkers of Neurodegeneration</td><td>382</td></tr>
+          <tr><td>CSF</td><td>Inflammation</td><td>73</td></tr>
+          <tr><td>CSF</td><td>Oxidative Stress Markers</td><td>157</td></tr>
+          <tr><td>CSF</td><td>Proteomics</td><td>271</td></tr>
+          <tr><td>CSF</td><td>Metabolomics</td><td>172</td></tr>
+          <tr><td>Blood</td><td>Biomarkers of Neurodegeneration</td><td>166</td></tr>
+          <tr><td>Blood</td><td>Metabolomics</td><td>178</td></tr>
+          <tr><td>Blood</td><td>Inflammation</td><td>73</td></tr>
+          <tr><td>Blood</td><td>Epigenetics</td><td>202</td></tr>
+          <tr><td>Blood</td><td>Exosomes (blood and neuronal)</td><td>212</td></tr>
+          <tr><td>Blood</td><td>Oxidative Stress Markers</td><td>149</td></tr>
+          <tr><td>Blood</td><td>Phospholipids, PAF, Plasmalogens</td><td>286</td></tr>
+          <tr><td>Stool</td><td>16S</td><td>183</td></tr>
+          <tr><td>Stool</td><td>Metagenomics</td><td>179</td></tr>
+          <tr><td>Stool</td><td>Metabolomics</td><td>172</td></tr>
+          <tr><td>Neuroimaging</td><td>MRI</td><td>306</td></tr>
+          <tr><td>Neuroimaging</td><td>EEG</td><td>288</td></tr>
+          <tr><td>Genetics</td><td>RNA</td><td>297</td></tr>
+          <tr><td>Genetics</td><td>Imputed GWAS</td><td>297</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:2rem; background:var(--paper-2); border-radius:var(--radius-lg); padding:1.5rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--ink); margin-bottom:.3rem;">Sample Biomarker Data</div>
+            <div style="font-size:.85rem; color:var(--ink-3); font-weight:300;">Download a sample of the biomarker dataset · Excel format</div>
+          </div>
+          <a href="ALBION_Biomarkers.xlsx" download style="display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:white; padding:10px 22px; border-radius:100px; text-decoration:none; font-size:.88rem; font-weight:500; transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+
+      </div>
+
+      <hr class="divider" style="margin-bottom:4rem;"/>
+
+      <!-- GENETICS -->
+
+
+    </main>
+  </div>
+</div>
+
+<div class="cta-band">
+  <h2>Interested in accessing ALBION data?</h2>
+  <p>We welcome research collaborations. Contact our team to discuss data sharing agreements and joint research opportunities.</p>
+  <a href="contact.html" class="btn-white">Contact us</a>
+</div>
+
+<div id="site-footer"></div>
+<script src="shared.js"></script>
+<script>
+  // highlight active sidebar link on scroll
+  const sections = document.querySelectorAll('.data-section[id]');
+  const sideLinks = document.querySelectorAll('.side-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    sideLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+</script>
+</body>
+</html>

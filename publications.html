@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications — ALBION Study</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .pub-body { max-width: var(--max); margin: 0 auto; padding: 5vw; }
+
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 3rem; }
+    .filter-btn { background: white; border: 1px solid var(--line); color: var(--ink-2); font-size: 0.85rem; font-weight: 400; padding: 7px 18px; border-radius: 100px; cursor: pointer; font-family: inherit; transition: all .2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); font-weight: 500; }
+
+    .pub-count { color: var(--ink-3); font-size: 0.88rem; margin-bottom: 2rem; }
+
+    .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .pub-item { background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.8rem 2rem; transition: box-shadow .2s; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .pub-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+
+    .pub-year-badge { flex-shrink: 0; background: var(--paper-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: 0.82rem; font-weight: 500; color: var(--ink-2); text-align: center; min-width: 56px; }
+
+    .pub-content { flex: 1; }
+    .pub-journal { font-size: 0.78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
+    .pub-title { font-family: 'DM Serif Display', serif; font-size: 1.12rem; color: var(--ink); line-height: 1.35; margin-bottom: 0.5rem; }
+    .pub-authors { color: var(--ink-3); font-size: 0.85rem; font-weight: 300; line-height: 1.5; margin-bottom: 0.6rem; }
+    .pub-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .pub-doi { color: var(--accent); font-size: 0.82rem; text-decoration: none; font-weight: 400; }
+    .pub-doi:hover { text-decoration: underline; }
+    .pub-tag { background: var(--accent-light); color: var(--accent); font-size: 0.72rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; padding: 2px 9px; border-radius: 100px; }
+    .pub-tag.sleep { background: #ede9fe; color: #5b21b6; }
+    .pub-tag.diet { background: #fef3c7; color: #92400e; }
+    .pub-tag.microbiome { background: #dcfce7; color: #166534; }
+    .pub-tag.imaging { background: #dbeafe; color: #1e40af; }
+    .pub-tag.genetics { background: #fce7f3; color: #9d174d; }
+    .pub-tag.design { background: var(--paper-2); color: var(--ink-2); }
+
+    .pmid { font-size: 0.78rem; color: var(--ink-3); font-weight: 300; }
+  </style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">Research output</div>
+    <h1>Publications</h1>
+    <p>Peer-reviewed research using ALBION data, covering among others, biomarkers, diet, sleep, microbiome, neuroimaging, and cognitive outcomes.</p>
+  </div>
+</div>
+
+<div class="pub-body">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPubs('diet', this)">Diet</button>
+    <button class="filter-btn" onclick="filterPubs('sleep', this)">Sleep</button>
+    <button class="filter-btn" onclick="filterPubs('microbiome', this)">Microbiome</button>
+    <button class="filter-btn" onclick="filterPubs('imaging', this)">Neuroimaging</button>
+    <button class="filter-btn" onclick="filterPubs('genetics', this)">Genetics</button>
+    <button class="filter-btn" onclick="filterPubs('design', this)">Study Design</button>
+  </div>
+
+  <p class="pub-count" id="pub-count">Showing 13 publications</p>
+
+  <div class="pub-list" id="pub-list">
+
+    <!-- 2026 -->
+    <div class="pub-item" data-tags="sleep">
+      <div class="pub-year-badge">2026</div>
+      <div class="pub-content">
+        <div class="pub-journal">Sleep Medicine</div>
+        <div class="pub-title">Objective sleep apnea severity, cognitive impairment and AD pathology: Insights from the ALBION cohort</div>
+        <div class="pub-authors">Foukarakis I, Androni X, Sampatakakis SN, Mamalaki E, Ntanasi E, Yannakoulia M, Chatzipanagiotou S, Papandreou C, Kyrozis A, Tsapanou A, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag sleep">Sleep</span>
+          <a href="https://doi.org/10.1016/j.sleep.2025.108691" class="pub-doi" target="_blank">doi: 10.1016/j.sleep.2025.108691</a>
+          <span class="pmid">PMID: 41338085</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 — Drouka MIND diet (Nutr Neurosci, Dec 2025) -->
+    <div class="pub-item" data-tags="diet">
+      <div class="pub-year-badge">2025</div>
+      <div class="pub-content">
+        <div class="pub-journal">Nutritional Neuroscience</div>
+        <div class="pub-title">Association between adherence to the Mediterranean-DASH Intervention for Neurodegenerative Delay (MIND) diet and cerebrospinal fluid Alzheimer's disease biomarkers in middle-life individuals without dementia: the ALBION study</div>
+        <div class="pub-authors">Drouka A, Chatzispyrellis S, Brikou D, Ntanasi E, Mamalaki E, Chatzipanagiotou S, Papandreou C, Rouskas K, Gu Y, Scarmeas N, Yannakoulia M.</div>
+        <div class="pub-meta">
+          <span class="pub-tag diet">Diet</span>
+          <a href="https://doi.org/10.1080/1028415X.2025.2599457" class="pub-doi" target="_blank">doi: 10.1080/1028415X.2025.2599457</a>
+          <span class="pmid">PMID: 41368801</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 — Vlachos (Brain Res, Nov 2025) -->
+    <div class="pub-item" data-tags="imaging">
+      <div class="pub-year-badge">2025</div>
+      <div class="pub-content">
+        <div class="pub-journal">Brain Research</div>
+        <div class="pub-title">Resting EEG partial coherence demonstrates increased γ range central functional connectivity in amnestic mild cognitive impairment</div>
+        <div class="pub-authors">Vlachos I, Moschovos C, Apostolakopoulou L, Karasavvidou K, Ntanasi E, Mamalaki E, Kugiumtzis D, Kimiskidis VK, Scarmeas N, Kyrozis A.</div>
+        <div class="pub-meta">
+          <span class="pub-tag imaging">Neurophysiology</span>
+          <a href="https://doi.org/10.1016/j.brainres.2025.149973" class="pub-doi" target="_blank">doi: 10.1016/j.brainres.2025.149973</a>
+          <span class="pmid">PMID: 41027526</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 2025 — Rouskas microbiome (Microorganisms, Sep 2025) -->
+    <div class="pub-item" data-tags="microbiome">
+      <div class="pub-year-badge">2025</div>
+      <div class="pub-content">
+        <div class="pub-journal">Microorganisms</div>
+        <div class="pub-title">Gut Microbiome Alterations in Mild Cognitive Impairment: Findings from the ALBION Greek Cohort</div>
+        <div class="pub-authors">Rouskas K, Mamalaki E, Ntanasi E, Pantoura M, Anezaki M, Emmanouil C, Novau-Ferré N, Bulló M, Dimas AS, Papandreou C, Yannakoulia M, Argiriou A, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag microbiome">Microbiome</span>
+          <a href="https://doi.org/10.3390/microorganisms13092112" class="pub-doi" target="_blank">doi: 10.3390/microorganisms13092112</a>
+          <span class="pmid">PMID: 41011443</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 — Drouka alcohol (Eur J Nutr, Apr 2025) -->
+    <div class="pub-item" data-tags="diet">
+      <div class="pub-year-badge">2025</div>
+      <div class="pub-content">
+        <div class="pub-journal">European Journal of Nutrition</div>
+        <div class="pub-title">Associations of moderate alcohol intake with cerebrospinal fluid biomarkers of Alzheimer's disease: data from the ALBION study</div>
+        <div class="pub-authors">Drouka A, Ntetsika KD, Brikou D, Mamalaki E, Ntanasi E, Chatzipanagiotou S, Gu Y, Scarmeas N, Yannakoulia M.</div>
+        <div class="pub-meta">
+          <span class="pub-tag diet">Diet</span>
+          <a href="https://doi.org/10.1007/s00394-025-03651-8" class="pub-doi" target="_blank">doi: 10.1007/s00394-025-03651-8</a>
+          <span class="pmid">PMID: 40167814</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 — Mourtzi sleep & hippocampus (J Integr Neurosci, Aug 2024) -->
+    <div class="pub-item" data-tags="imaging sleep">
+      <div class="pub-year-badge">2024</div>
+      <div class="pub-content">
+        <div class="pub-journal">Journal of Integrative Neuroscience</div>
+        <div class="pub-title">Objective Sleep Function is Associated with Hippocampal Subfield Volumes in Community-Dwelling Adults</div>
+        <div class="pub-authors">Mourtzi N, Tsapanou A, Morfakidou R, Angelopoulou G, Constantinides V, Ntanasi E, Mamalaki E, Yannakoulia M, Karavasilis E, Christidi F, Velonakis G, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag imaging">Imaging</span>
+          <span class="pub-tag sleep">Sleep</span>
+          <a href="https://doi.org/10.31083/j.jin2308159" class="pub-doi" target="_blank">doi: 10.31083/j.jin2308159</a>
+          <span class="pmid">PMID: 39207082</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 — Christidi food groups & white matter (Nutrients, Aug 2024) -->
+    <div class="pub-item" data-tags="imaging diet">
+      <div class="pub-year-badge">2024</div>
+      <div class="pub-content">
+        <div class="pub-journal">Nutrients</div>
+        <div class="pub-title">The Association between Individual Food Groups, Limbic System White Matter Tracts, and Episodic Memory: Initial Data from the Aiginition Longitudinal Biomarker Investigation of Neurodegeneration (ALBION) Study.</div>
+        <div class="pub-authors">Christidi F, Drouka A, Brikou D, Mamalaki E, Ntanasi E, Karavasilis E, Velonakis G, Angelopoulou G, Tsapanou A, Gu Y, Yannakoulia M, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag imaging">Imaging</span>
+          <span class="pub-tag diet">Diet</span>
+          <a href="https://doi.org/10.3390/nu16162766" class="pub-doi" target="_blank">doi: 10.3390/nu16162766</a>
+          <span class="pmid">PMID: 39203902</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 — Brikou eating frequency (J Nutr, Jul 2024) -->
+    <div class="pub-item" data-tags="diet">
+      <div class="pub-year-badge">2024</div>
+      <div class="pub-content">
+        <div class="pub-journal">Journal of Nutrition</div>
+        <div class="pub-title">Eating Frequency, Timing, and Duration in Relation to Cognitive Performance and Alzheimer Disease Biomarkers in Adults</div>
+        <div class="pub-authors">Brikou D, Dimopoulou MA, Drouka A, Ntanasi E, Mamalaki E, Gu Y, Scarmeas N, Yannakoulia M. </div>
+        <div class="pub-meta">
+          <span class="pub-tag diet">Diet</span>
+          <a href="https://doi.org/10.1016/j.tjnut.2024.05.025" class="pub-doi" target="_blank">doi: 10.1016/j.tjnut.2024.05.025</a>
+          <span class="pmid">PMID: 38797480</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 — Sampatakakis physical function (IJMS, Sep 2023) -->
+    <div class="pub-item" data-tags="imaging">
+      <div class="pub-year-badge">2023</div>
+      <div class="pub-content">
+        <div class="pub-journal">International Journal of Molecular Sciences</div>
+        <div class="pub-title">Objective Physical Function in the Alzheimer's Disease Continuum: Association with Cerebrospinal Fluid Biomarkers in the ALBION Study</div>
+        <div class="pub-authors">Sampatakakis SN, Mamalaki E, Ntanasi E, Kalligerou F, Liampas I, Yannakoulia M, Gargalionis AN, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag imaging">Biomarkers</span>
+          <a href="https://doi.org/10.3390/ijms241814079" class="pub-doi" target="_blank">doi: 10.3390/ijms241814079</a>
+          <span class="pmid">PMID: 37762384</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 — Tsamou miRNA (J Alzheimers Dis Rep, Apr 2023) -->
+    <div class="pub-item" data-tags="genetics">
+      <div class="pub-year-badge">2023</div>
+      <div class="pub-content">
+        <div class="pub-journal">Journal of Alzheimer's Disease Reports</div>
+        <div class="pub-title">A Candidate microRNA Profile for Early Diagnosis of Sporadic Alzheimer's Disease</div>
+        <div class="pub-authors">Tsamou M, Kalligerou F, Ntanasi E, Scarmeas N, Skalicky S, Hackl M, Roggen E.</div>
+        <div class="pub-meta">
+          <span class="pub-tag genetics">Genetics</span>
+          <a href="https://doi.org/10.3233/ADR-230001" class="pub-doi" target="_blank">doi: 10.3233/ADR-230001</a>
+          <span class="pmid">PMID: 37090956</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 — Brikou energy intake (Nutrients, Jan 2023) -->
+    <div class="pub-item" data-tags="diet">
+      <div class="pub-year-badge">2023</div>
+      <div class="pub-content">
+        <div class="pub-journal">Nutrients</div>
+        <div class="pub-title">Daily Energy Intake Distribution and Cognitive Performance in Non-Demented Individuals</div>
+        <div class="pub-authors">Brikou D, Charisis S, Drouka A, Christodoulakou SM, Ntanasi E, Mamalaki E, Constadinides VC, Scarmeas N, Yannakoulia M.</div>
+        <div class="pub-meta">
+          <span class="pub-tag diet">Diet</span>
+          <a href="https://doi.org/10.3390/nu15030673" class="pub-doi" target="_blank">doi: 10.3390/nu15030673</a>
+          <span class="pmid">PMID: 36771379</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 — Scarmeas initial data (Medicina, Aug 2022) -->
+    <div class="pub-item" data-tags="design">
+      <div class="pub-year-badge">2022</div>
+      <div class="pub-content">
+        <div class="pub-journal">Medicina</div>
+        <div class="pub-title">Initial Data and a Clinical Diagnosis Transition for the Aiginition Longitudinal Biomarker Investigation of Neurodegeneration (ALBION) Study</div>
+        <div class="pub-authors">o	Scarmeas N, Daskalaki A, Kalligerou F, Ntanasi E, Mamalaki E, Gargalionis AN, Patas K, Chatzipanagiotou S, Yannakoulia M, Constantinides VC.</div>
+        <div class="pub-meta">
+          <span class="pub-tag design">Study Data</span>
+          <a href="https://doi.org/10.3390/medicina58091179" class="pub-doi" target="_blank">doi: 10.3390/medicina58091179</a>
+          <span class="pmid">PMID: 36143858</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2019 — Kalligerou study design (Postgrad Med, Sep 2019) -->
+    <div class="pub-item" data-tags="design">
+      <div class="pub-year-badge">2019</div>
+      <div class="pub-content">
+        <div class="pub-journal">Postgraduate Medicine</div>
+        <div class="pub-title">Aiginition Longitudinal Biomarker Investigation Of Neurodegeneration (ALBION): study design, cohort description, and preliminary data</div>
+        <div class="pub-authors">Kalligerou F, Ntanasi E, Voskou P, Velonakis G, Karavasilis E, Mamalaki E, Kyrozis A, Sigala E, Economou NT, Patas K, Yannakoulia M, Scarmeas N.</div>
+        <div class="pub-meta">
+          <span class="pub-tag design">Study Design</span>
+          <a href="https://doi.org/10.1080/00325481.2019.1663708" class="pub-doi" target="_blank">doi: 10.1080/00325481.2019.1663708</a>
+          <span class="pmid">PMID: 31483196</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-band">
+  <h2>Interested in using ALBION data for research?</h2>
+  <p>We welcome proposals for data access and collaborative publications. Reach out to discuss how we can work together.</p>
+  <a href="contact.html" class="btn-white">Contact us</a>
+</div>
+
+<div id="site-footer"></div>
+<script src="shared.js"></script>
+<script>
+  function filterPubs(tag, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const items = document.querySelectorAll('.pub-item');
+    let count = 0;
+    items.forEach(item => {
+      const tags = item.dataset.tags || '';
+      const show = tag === 'all' || tags.includes(tag);
+      item.style.display = show ? 'flex' : 'none';
+      if (show) count++;
+    });
+    document.getElementById('pub-count').textContent = `Showing ${count} publication${count !== 1 ? 's' : ''}`;
+  }
+</script>
+</body>
+</html>

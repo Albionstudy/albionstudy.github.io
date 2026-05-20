@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The ALBION Story — ALBION Study</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.story-body { max-width: var(--max); margin: 0 auto; padding: 5vw; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; margin-bottom: 5rem; }
+.two-col.reverse { direction: rtl; }
+.two-col.reverse > * { direction: ltr; }
+
+.mission-block { background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 2.5rem; }
+.mission-block h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
+.mission-block p { color: var(--ink-2); font-size: 1rem; font-weight: 300; line-height: 1.75; }
+
+.objectives-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+.objectives-list li { display: flex; gap: 1rem; align-items: flex-start; }
+.obj-num { flex-shrink: 0; width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 500; margin-top: 2px; }
+.objectives-list p { color: var(--ink-2); font-size: 0.98rem; font-weight: 300; line-height: 1.65; }
+
+.ethics-box { background: var(--paper-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.5rem 2rem; margin-top: 2rem; }
+.ethics-box p { color: var(--ink-2); font-size: 0.9rem; font-weight: 300; line-height: 1.65; }
+.ethics-box strong { color: var(--ink); font-weight: 500; }
+
+.protocol-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; margin-top: 2rem; }
+.proto-card { background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem; }
+.proto-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent); margin-bottom: 0.5rem; }
+.proto-card p { color: var(--ink-2); font-size: 0.9rem; font-weight: 300; line-height: 1.6; }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background: var(--accent-light); }
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-item::before { content:''; position:absolute; left:-2.45rem; top:6px; width:12px; height:12px; border-radius:50%; background: var(--accent); border:2px solid white; box-shadow: 0 0 0 2px var(--accent-light); }
+.timeline-item h4 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--ink); margin-bottom:0.4rem; }
+.timeline-item p { color:var(--ink-2); font-size:0.9rem; font-weight:300; line-height:1.6; }
+.timeline-year { display:inline-block; font-size:0.75rem; font-weight:500; color:var(--accent); letter-spacing:.06em; text-transform:uppercase; background:var(--accent-light); padding:2px 10px; border-radius:100px; margin-bottom:0.5rem; }
+
+@media(max-width:900px){ .two-col{grid-template-columns:1fr} .protocol-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">About ALBION</div>
+    <h1>The ALBION Study</h1>
+    <p>Aiginition Longitudinal Biomarkers Investigation of Neurodegeneration.</p>
+
+  </div>
+</div>
+
+<div class="story-body">
+
+  <!-- MISSION + OBJECTIVES -->
+  <div class="two-col">
+    <div>
+      <div class="section-label">Mission</div>
+      <h2 class="section-title">Why ALBION?</h2>
+      <p class="section-sub" style="margin-bottom:2rem;">The mission of ALBION study is to comprehensively investigate the early biological and clinical changes that precede the onset of cognitive decline and dementia. Our goal is to better understand the biological background of cognitive health, contributing to earlier diagnosis, improved prevention strategies, and the development of effective therapeutic interventions.</p>
+
+      <div class="ethics-box">
+        <p><strong>Ethics approval:</strong> The protocol is approved by the Ethics Committee of Aiginiteio Hospital of the National and Kapodistrian University of Athens (NKUA) Protocol Number of Approval: 255, Code of Approval: ΑΔΑ: ΨΘ6Κ46Ψ8Ν2-8ΗΩ.</p>
+      </div>
+    </div>
+
+    <div class="mission-block">
+      <h3>Study Objectives</h3>
+      <ul class="objectives-list">
+        <li>
+          <div class="obj-num">1</div>
+          <p>Identify early biomarkers of neurodegeneration through the analysis of cerebrospinal fluid (CSF), blood-based and genetic markers, as well as advanced neuroimaging data.</p>
+        </li>
+        <li>
+          <div class="obj-num">2</div>
+          <p>Characterize the natural course of cognitive decline by longitudinally following individuals of age 40 or older.</p>
+        </li>
+        <li>
+          <div class="obj-num">3</div>
+          <p>Examine the interaction between biological, clinical and lifestyle factors by investigating how diet, physical activity, sleep, mental health, and social engagement influence cognitive function and brain health.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin-bottom:4rem;"/>
+
+  <!-- METHODS -->
+  <div style="margin-bottom:5rem;">
+    <div class="section-label">Methods</div>
+    <h2 class="section-title" style="max-width:100%;">An open, continuously recruiting longitudinal cohort</h2>
+    <p class="section-sub" style="max-width:100%;margin-bottom:1rem;">ALBION is an open, continuously recruiting, longitudinal cohort study with repeated follow-up visits, approximately every 1.5-3 years, allowing to track dynamic changes in cognition, biomarkers, and brain structure over time.</p>
+    <p class="section-sub" style="max-width:100%;margin-bottom:2rem;">Participants undergo a comprehensive, multidimensional evaluation that includes:</p>
+
+    <div class="protocol-grid">
+      <div class="proto-card">
+        <h4>Clinical &amp; Neurological Assessment</h4>
+        <p>Clinical and Neurological Assessment, which includes detailed neurological examination.</p>
+      </div>
+      <div class="proto-card">
+        <h4>Neuropsychological Testing</h4>
+        <p>Extensive neuropsychological testing evaluating different cognitive domains.</p>
+      </div>
+      <div class="proto-card">
+        <h4>Biomarker Assessment</h4>
+        <p>Biomarker Assessment, which includes, lumbar puncture for measurement of CSF biomarkers (Aβ42, total tau, phosphorylated tau) and more, blood sampling for biochemical, genetic and molecular analyses and stool sampling for gut microbiome analysis.
+        </p>
+      </div>
+      <div class="proto-card">
+        <h4>Neuroimaging &amp; Neurophysiology</h4>
+        <p>High-resolution brain Magnetic Reasonance Imaging (MRI), Electroencephalography (EEG).
+        </p>
+      </div>
+      <div class="proto-card">
+        <h4>Lifestyle &amp; Behavioral Assessment</h4>
+        <p>Structured questionnaires on sleep, physical activity, diet, anxiety, depression, and leisure activities and objective monitoring using wearable devices (actigraphy, WatchPAT).</p>
+      </div>
+<!--      <div class="proto-card">-->
+<!--        <h4>Diet Assessment</h4>-->
+<!--        <p>Four 24-hour dietary recalls (3 weekday, 1 weekend) with trained dieticians. Analysis covers macro/micro-nutrients, food groups, Mediterranean and MIND diet adherence.</p>-->
+<!--      </div>-->
+    </div>
+  </div>
+
+  <hr class="divider" style="margin-bottom:4rem;"/>
+
+  <!-- TIMELINE / KEY MILESTONES -->
+  <div class="two-col">
+    <div>
+      <div class="section-label">Milestones</div>
+      <h2 class="section-title">ALBION through the years</h2>
+      <p class="section-sub">ALBION has steadily built a unique resource for neurodegeneration research.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">2019</span>
+        <h4>Study established</h4>
+        <p>Protocol approved and first participants enrolled.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2021</span>
+        <h4>Recruitment grows</h4>
+        <p>Cohort expands with comprehensive baseline assessments.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2022</span>
+        <h4>Initial data publication</h4>
+        <p>First clinical transition data from ALBION published in <em>Medicina</em> (Scarmeas et al.).</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2026</span>
+        <h4>382 participants enrolled at baseline</h4>
+        <p>As of January 2026, 382 participants have completed their baseline assessment, with a mean follow-up duration of ~3 years. Open recruitment continues.</p>
+      </div>
+    </div>
+  </div>
+
+
+<!--  <div class="two-col">-->
+<!--    <div>-->
+<!--      <div class="section-label">Milestones</div>-->
+<!--      <h2 class="section-title">ALBION through the years</h2>-->
+<!--      <p class="section-sub">From a single-centre protocol to an internationally collaborative study, ALBION has steadily built a unique resource for neurodegeneration research.</p>-->
+<!--    </div>-->
+<!--    <div class="timeline">-->
+<!--      <div class="timeline-item">-->
+<!--        <span class="timeline-year">2019</span>-->
+<!--        <h4>Study established</h4>-->
+<!--        <p>Protocol approved and first participants enrolled at the Cognitive Disorders Outpatient Clinic, Aiginiteio Hospital, NKUA.</p>-->
+<!--      </div>-->
+<!--      <div class="timeline-item">-->
+<!--        <span class="timeline-year">2021</span>-->
+<!--        <h4>Recruitment grows</h4>-->
+<!--        <p>Cohort expands with comprehensive baseline assessments across all data domains — biomarkers, neuroimaging, diet, and lifestyle.</p>-->
+<!--      </div>-->
+<!--      <div class="timeline-item">-->
+<!--        <span class="timeline-year">2023</span>-->
+<!--        <h4>First publications</h4>-->
+<!--        <p>Peer-reviewed findings begin emerging across diet, CSF biomarkers, neuroimaging, and cognitive trajectories.</p>-->
+<!--      </div>-->
+<!--      <div class="timeline-item">-->
+<!--        <span class="timeline-year">2024</span>-->
+<!--        <h4>International collaborations</h4>-->
+<!--        <p>Active partnerships established with Columbia University, University of Sheffield, and Harokopio University.</p>-->
+<!--      </div>-->
+<!--      <div class="timeline-item">-->
+<!--        <span class="timeline-year">2026</span>-->
+<!--        <h4>382 participants enrolled</h4>-->
+<!--        <p>Open recruitment continues with longitudinal follow-up now spanning up to 8 years for the earliest enrolled participants.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Want to learn more about our methods?</h2>
+  <p>Dive into the full details of our data collection, participant criteria, and research protocols.</p>
+  <a href="data.html" class="btn-white">Explore Participants &amp; Data</a>
+</div>
+
+<div id="site-footer"></div>
+<script src="shared.js"></script>
+</body>
+</html>

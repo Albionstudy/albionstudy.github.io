@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Team — ALBION Study</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .team-body { max-width: var(--max); margin: 0 auto; padding: 5vw; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .team-card { background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 2rem; text-align: center; transition: box-shadow .2s, transform .2s; cursor: pointer; }
+    .team-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.07); transform: translateY(-3px); }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--accent); font-weight: 400; }
+    .team-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.3rem; }
+    .team-card .role { font-size: 0.82rem; color: var(--accent); font-weight: 500; letter-spacing: 0.03em; }
+    .team-card .affil { font-size: 0.82rem; color: var(--ink-3); font-weight: 300; margin-top: 0.3rem; }
+
+    .pi-card { background: var(--ink); color: var(--paper); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 3rem; flex-wrap: nowrap; cursor: pointer; transition: opacity .2s;  }
+    .pi-card:hover { opacity: 0.92; }
+    .pi-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 2rem; color: white; flex-shrink: 0; }
+    .pi-info h2 { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: white; margin-bottom: 0.3rem; }
+    .pi-info .pi-role { font-size: 0.88rem; color: var(--accent-mid); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .pi-info p { color: rgba(248,247,244,.6); font-size: 0.95rem; font-weight: 300; line-height: 1.65; max-width: 60ch; }
+
+    /* Modal overlay */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.45); z-index: 1000;
+      align-items: center; justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn .2s ease; }
+
+    .modal {
+      background: white; border-radius: var(--radius-lg);
+      max-width: 680px; width: 100%;
+      box-shadow: 0 24px 80px rgba(0,0,0,.18);
+      animation: slideUp .22s ease;
+      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+
+    @keyframes slideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .modal-top { background: var(--ink); padding: 2rem 2rem 1.8rem; display: flex; gap: 1.5rem; align-items: center; position: relative; }
+    .modal-x { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.1); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .modal-x:hover { background: rgba(255,255,255,.22); }
+    .modal-x svg { width: 14px; height: 14px; stroke: white; stroke-width: 2; fill: none; }
+    .modal-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: white; flex-shrink: 0; }
+    .modal-name { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: white; margin-bottom: 0.2rem; }
+    .modal-role { font-size: 0.8rem; color: var(--accent-mid); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    .modal-body { padding: 1.8rem 2rem 2rem; }
+    .modal-bio { color: var(--ink-2); font-size: 0.95rem; font-weight: 300; line-height: 1.75; margin-bottom: 1.2rem; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+    .modal-tag { background: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; }
+    .modal-close { width: 100%; background: var(--paper-2); border: 1px solid var(--line); border-radius: 100px; padding: 10px; font-family: inherit; font-size: 0.9rem; font-weight: 500; color: var(--ink-2); cursor: pointer; transition: background .15s; }
+    .modal-close:hover { background: var(--line); }
+
+    @media(max-width:600px){ .pi-card{flex-direction:column} .modal{margin:1rem} }
+
+    @media(max-width:600px) {
+      .modal-overlay { padding: 0.5rem; align-items: flex-end; }
+      .modal { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+      .modal-top { padding: 1.2rem 1.2rem 1rem; }
+      .modal-body { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="tag">People</div>
+    <h1>Our Team</h1>
+    <p>The ALBION study is driven by a multidisciplinary team of neurologists, neuropsychologists, dietitians and imaging specialists at Aiginiteio University Hospital.</p>
+  </div>
+</div>
+
+<div class="team-body">
+
+  <div class="section-label">Principal Investigator</div>
+  <div class="pi-card" onclick="openModal('ns')">
+    <div class="pi-avatar">NS</div>
+    <div class="pi-info">
+      <h2>Nikolaos Scarmeas</h2>
+      <div class="pi-role">Principal Investigator</div>
+      <p style="max-width:100%;">Dr Scarmeas is currently Professor of Neurology at the Medical School of the National and Kapodistrian University of Athens, while he maintains a faculty position at Columbia University in New York too. Dr Scarmeas shares his research time between the two institutions. His educational and clinical work includes seeing patients of older age with dementias and cognitive dysfunction, supervising and teaching of Medical students and Neurology residents at National and Kapodistrian University of Athens.</p>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem;">Core Team</div>
+
+  <b>TBA</b>
+
+<!--  <div class="team-grid">-->
+<!--    <div class="team-card" onclick="openModal('my')">-->
+<!--      <div class="avatar">MY</div>-->
+<!--      <h3>Mary Yannakoulia</h3>-->
+<!--      <div class="role">Co-Investigator</div>-->
+<!--      <div class="affil">Nutritional Science &amp; Diet</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('fk')">-->
+<!--      <div class="avatar">FK</div>-->
+<!--      <h3>Fotini Kalligerou</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Clinical Assessment</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('ad')">-->
+<!--      <div class="avatar">AD</div>-->
+<!--      <h3>Aikaterini Daskalaki</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Clinical Coordination</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('en')">-->
+<!--      <div class="avatar">EN</div>-->
+<!--      <h3>Eva Ntanasi</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Neuropsychology &amp; Biomarkers</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('gt')">-->
+<!--      <div class="avatar">GT</div>-->
+<!--      <h3>Georgia Tsilikopoulou</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Study Coordination</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('af')">-->
+<!--      <div class="avatar">AF</div>-->
+<!--      <h3>Aggeliki Fotopoulou</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Data Management</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('em')">-->
+<!--      <div class="avatar">EM</div>-->
+<!--      <h3>Efthimia Mamalaki</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Diet &amp; Lifestyle Assessment</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('vp')">-->
+<!--      <div class="avatar">VP</div>-->
+<!--      <h3>Vicky Petroulaki</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Clinical Assessments</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('ey')">-->
+<!--      <div class="avatar">EY</div>-->
+<!--      <h3>Eleni Yagkou</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Study Coordination</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('db')">-->
+<!--      <div class="avatar">DB</div>-->
+<!--      <h3>Dimitra Brikou</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Nutritional Science</div>-->
+<!--    </div>-->
+<!--    <div class="team-card" onclick="openModal('adr')">-->
+<!--      <div class="avatar">AD</div>-->
+<!--      <h3>Archontoula Drouka</h3>-->
+<!--      <div class="role">Researcher</div>-->
+<!--      <div class="affil">Diet &amp; Biomarkers</div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div style="margin-top:3rem; background:var(&#45;&#45;paper-2); border-radius:var(&#45;&#45;radius-lg); padding:2rem;">-->
+<!--    <p style="color:var(&#45;&#45;ink-2); font-size:.95rem; font-weight:300; line-height:1.7;">The ALBION study is conducted at the Cognitive Disorders Outpatient Clinic of <strong style="font-weight:500; color:var(&#45;&#45;ink);">Aiginiteio Hospital, National and Kapodistrian University of Athens (NKUA)</strong>. The study involves collaborations with experts in molecular biology, neuroimaging, dietetics, and epidemiology across multiple departments.</p>-->
+<!--  </div>-->
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-top">
+      <div class="modal-avatar" id="modal-initials"></div>
+      <div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-role" id="modal-role"></div>
+      </div>
+      <button class="modal-x" onclick="closeModal()">
+        <svg viewBox="0 0 14 14"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-bio" id="modal-bio"></p>
+      <div class="modal-tags" id="modal-tags"></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <h2>Want to collaborate with our team?</h2>
+  <p>We are always open to new scientific partnerships and data-sharing collaborations.</p>
+  <a href="contact.html" class="btn-white">Get in touch</a>
+</div>
+
+<div id="site-footer"></div>
+<script src="shared.js"></script>
+<script>
+  const members = {
+    ns: {
+      initials: 'NS', name: 'Nikolaos Scarmeas', role: 'Principal Investigator',
+      bio: 'His research interests have started from the topic of cognitive reserve (i.e. how higher IQ, education, more demanding occupational attainments, or more engagement in cognitive-social-physical leisure - lifestyle activities – physical activities etc can help older adults cope better with the damage caused to their brains by AD and aging and therefore reduce their risk for dementia and slow down their rates of cognitive and functional decline). He subsequently developed a special interest in the contribution of diet (in particular composite dietary patterns such as a Mediterranean-type diet and others) as well as the biological mechanisms of this contribution in dementias and healthy aging. He has been addressing his research (and additional ones, i.e. APOE related etc) using clinical, epidemiological and imaging (PET, MRI etc) methodological approaches (see full publication record for more details). Dr Scarmeas has been the Principal Investigator in studies funded by either the Alzheimer\'s Association (IIRG) or the National Institute of Health – National Institute of Aging in the US and a Co-Investigator in multiple others. His research work has resulted in >290 original PubMed publications in highly esteemed journals (>20500 Scopus citations, Scopus h-index = 76) and multiple presentations in internationally acclaimed scientific conferences - meetings. He has been invited to review for about 300 international scientific journals and 49 international funding agencies from the Americas, Europe, Oceania etc, including internationally renowned organizations such as the Alzheimer’s Association, the US National Institute of Health, the European Union programs (i.e. Marie Curie, European Research Council), the Wellcome Trust in UK etc.',
+      tags: ['Neurology', 'Alzheimer\'s Disease', 'Biomarkers', 'Epidemiology', 'Neuroimaging']
+    },
+    my: {
+      initials: 'MY', name: 'Mary Yannakoulia', role: 'Co-Investigator',
+      bio: 'Professor of Nutritional Science at Harokopio University of Athens. Her work at ALBION focuses on dietary assessment and the relationship between nutritional patterns — including the Mediterranean and MIND diets — and cognitive health outcomes.',
+      tags: ['Nutritional Science', 'Dietary Assessment', 'Mediterranean Diet', 'MIND Diet']
+    },
+    fk: {
+      initials: 'FK', name: 'Fotini Kalligerou', role: 'Researcher',
+      bio: 'Responsible for clinical assessments and neuropsychological evaluations within the ALBION cohort. She has been involved in the study since its earliest phases and contributed to the initial study design publications.',
+      tags: ['Clinical Assessment', 'Neuropsychology', 'Study Design']
+    },
+    ad: {
+      initials: 'AD', name: 'Aikaterini Daskalaki', role: 'Researcher',
+      bio: 'Coordinates clinical data collection and participant follow-up at the Cognitive Disorders Outpatient Clinic. Her work ensures the consistency and quality of longitudinal data across all ALBION visits.',
+      tags: ['Clinical Coordination', 'Data Quality', 'Follow-up']
+    },
+    en: {
+      initials: 'EN', name: 'Eva Ntanasi', role: 'Researcher',
+      bio: 'Contributes to both neuropsychological assessment and biomarker analysis within ALBION. Her research interests include cognitive trajectories, lifestyle determinants of brain health, and the relationship between biomarker profiles and clinical outcomes.',
+      tags: ['Neuropsychology', 'Biomarkers', 'Cognitive Trajectories', 'Lifestyle']
+    },
+    gt: {
+      initials: 'GT', name: 'Georgia Tsilikopoulou', role: 'Researcher',
+      bio: 'Involved in the day-to-day coordination of the ALBION study, including participant scheduling, protocol adherence, and study logistics at Aiginiteio Hospital.',
+      tags: ['Study Coordination', 'Logistics', 'Protocol Management']
+    },
+    af: {
+      initials: 'AF', name: 'Aggeliki Fotopoulou', role: 'Researcher',
+      bio: 'Responsible for data management and database curation within the ALBION study. Her work ensures the integrity and accessibility of the multidimensional longitudinal dataset.',
+      tags: ['Data Management', 'Database', 'Data Integrity']
+    },
+    em: {
+      initials: 'EM', name: 'Efthimia Mamalaki', role: 'Researcher',
+      bio: 'Conducts dietary assessments and lifestyle evaluations for ALBION participants, including 24-hour dietary recalls and questionnaire administration. Her research examines the role of nutrition and daily habits in cognitive health.',
+      tags: ['Diet Assessment', 'Lifestyle', '24h Dietary Recall', 'Cognitive Health']
+    },
+    vp: {
+      initials: 'VP', name: 'Vicky Petroulaki', role: 'Researcher',
+      bio: 'Performs clinical assessments and neurological examinations as part of the ALBION evaluation protocol, contributing to the standardised clinical characterisation of participants.',
+      tags: ['Clinical Assessments', 'Neurology', 'Participant Evaluation']
+    },
+    ey: {
+      initials: 'EY', name: 'Eleni Yagkou', role: 'Researcher',
+      bio: 'Supports the coordination and operational management of the ALBION study, assisting with participant communication, visit scheduling, and protocol implementation.',
+      tags: ['Study Coordination', 'Participant Communication']
+    },
+    db: {
+      initials: 'DB', name: 'Dimitra Brikou', role: 'Researcher',
+      bio: 'A nutritional scientist whose research within ALBION focuses on eating patterns, meal timing, and dietary behaviours in relation to cognitive performance and Alzheimer\'s disease biomarkers. She has co-authored multiple ALBION publications on diet and cognition.',
+      tags: ['Nutritional Science', 'Eating Patterns', 'Meal Timing', 'Cognition']
+    },
+    adr: {
+      initials: 'AD', name: 'Archontoula Drouka', role: 'Researcher',
+      bio: 'Investigates the associations between dietary patterns — including alcohol intake and adherence to the MIND diet — and CSF biomarkers of Alzheimer\'s disease. She has contributed several ALBION publications on diet and neurodegeneration biomarkers.',
+      tags: ['Diet', 'CSF Biomarkers', 'MIND Diet', 'Alcohol & Cognition']
+    }
+  };
+
+  function openModal(id) {
+    const m = members[id];
+    if (!m) return;
+    document.getElementById('modal-initials').textContent = m.initials;
+    document.getElementById('modal-name').textContent = m.name;
+    document.getElementById('modal-role').textContent = m.role;
+    document.getElementById('modal-bio').textContent = m.bio;
+    const tagsEl = document.getElementById('modal-tags');
+    tagsEl.innerHTML = m.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(e) {
+    if (e && e.target !== document.getElementById('modal-overlay') && e.target.className !== 'modal-close') return;
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
