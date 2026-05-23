@@ -148,7 +148,7 @@
 
         <style>
           .pt-wrap { margin-top: 2rem; }
-          .pt-track-area { position: relative; height: 60px; margin: 0 20px; }
+          .pt-track-area { position: relative; height: 60px; margin: 0 20px; overflow: visible; }
           .pt-line { position: absolute; top: 50%; left: 0; right: 0; height: 3px; background: var(--line); transform: translateY(-50%); border-radius: 2px; }
           .pt-fill { position: absolute; top: 50%; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); transform: translateY(-50%); border-radius: 2px; transition: width .4s ease; width: 0%; }
           .pt-nodes { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
@@ -257,6 +257,18 @@
                 wrap.appendChild(lbl);
                 container.appendChild(wrap);
               });
+
+              // Dashed line after last node
+              var dash = document.createElement('div');
+              dash.style.position = 'absolute';
+              dash.style.top = '50%';
+              dash.style.left = 'calc(100% + 8px)';
+              dash.style.transform = 'translateY(-50%)';
+              dash.style.width = '40px';
+              dash.style.height = '3px';
+              dash.style.borderTop = '3px dashed var(--accent-mid)';
+              dash.style.opacity = '0.6';
+              container.parentElement.appendChild(dash);
             }
 
             function renderCard(v) {
@@ -768,7 +780,7 @@
         <div style="margin-top:2rem; background:var(--paper-2); border-radius:var(--radius-lg); padding:1.5rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
           <div>
             <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--ink); margin-bottom:.3rem;">Sample Biomarker Data</div>
-            <div style="font-size:.85rem; color:var(--ink-3); font-weight:300;">Download a sample of the biomarker dataset · Excel format</div>
+            <div style="font-size:.85rem; color:var(--ink-3); font-weight:300;">Download a sample of the biomarker dataset</div>
           </div>
           <a href="ALBION_Biomarkers.xlsx" download style="display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:white; padding:10px 22px; border-radius:100px; text-decoration:none; font-size:.88rem; font-weight:500; transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -788,11 +800,11 @@
   </div>
 </div>
 
-<div class="cta-band">
-  <h2>Interested in accessing ALBION data?</h2>
-  <p>We welcome research collaborations. Contact our team to discuss data sharing agreements and joint research opportunities.</p>
-  <a href="contact.html" class="btn-white">Contact us</a>
-</div>
+<!--<div class="cta-band">-->
+<!--  <h2>Interested in accessing ALBION data?</h2>-->
+<!--  <p>We welcome research collaborations. Contact our team to discuss data sharing agreements and joint research opportunities.</p>-->
+<!--  <a href="contact.html" class="btn-white">Contact us</a>-->
+<!--</div>-->
 
 <div id="site-footer"></div>
 <script src="shared.js"></script>
