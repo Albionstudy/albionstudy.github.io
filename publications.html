@@ -54,12 +54,15 @@
 <div class="pub-body">
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPubs('design', this)">Study Design</button>
     <button class="filter-btn" onclick="filterPubs('diet', this)">Diet</button>
     <button class="filter-btn" onclick="filterPubs('sleep', this)">Sleep</button>
     <button class="filter-btn" onclick="filterPubs('microbiome', this)">Microbiome</button>
-    <button class="filter-btn" onclick="filterPubs('imaging', this)">Neuroimaging</button>
+    <button class="filter-btn" onclick="filterPubs('mri', this)">MRI</button>
+    <button class="filter-btn" onclick="filterPubs('eeg', this)">EEG</button>
     <button class="filter-btn" onclick="filterPubs('genetics', this)">Genetics</button>
-    <button class="filter-btn" onclick="filterPubs('design', this)">Study Design</button>
+    <button class="filter-btn" onclick="filterPubs('wearables', this)">Wearables</button>
+    <button class="filter-btn" onclick="filterPubs('physical', this)">Physical Function</button>
   </div>
 
   <p class="pub-count" id="pub-count">Showing 13 publications</p>
@@ -67,7 +70,7 @@
   <div class="pub-list" id="pub-list">
 
     <!-- 2026 -->
-    <div class="pub-item" data-tags="sleep">
+    <div class="pub-item" data-tags="sleep wearables">
       <div class="pub-year-badge">2026</div>
       <div class="pub-content">
         <div class="pub-journal">Sleep Medicine</div>
@@ -75,6 +78,7 @@
         <div class="pub-authors">Foukarakis I, Androni X, Sampatakakis SN, Mamalaki E, Ntanasi E, Yannakoulia M, Chatzipanagiotou S, Papandreou C, Kyrozis A, Tsapanou A, Scarmeas N.</div>
         <div class="pub-meta">
           <span class="pub-tag sleep">Sleep</span>
+          <span class="pub-tag wearables">Wearables</span>
           <a href="https://doi.org/10.1016/j.sleep.2025.108691" class="pub-doi" target="_blank">doi: 10.1016/j.sleep.2025.108691</a>
           <span class="pmid">PMID: 41338085</span>
         </div>
@@ -97,14 +101,14 @@
     </div>
 
     <!-- 2025 — Vlachos (Brain Res, Nov 2025) -->
-    <div class="pub-item" data-tags="imaging">
+    <div class="pub-item" data-tags="eeg">
       <div class="pub-year-badge">2025</div>
       <div class="pub-content">
         <div class="pub-journal">Brain Research</div>
         <div class="pub-title">Resting EEG partial coherence demonstrates increased γ range central functional connectivity in amnestic mild cognitive impairment</div>
         <div class="pub-authors">Vlachos I, Moschovos C, Apostolakopoulou L, Karasavvidou K, Ntanasi E, Mamalaki E, Kugiumtzis D, Kimiskidis VK, Scarmeas N, Kyrozis A.</div>
         <div class="pub-meta">
-          <span class="pub-tag imaging">Neurophysiology</span>
+          <span class="pub-tag eeg">EEG</span>
           <a href="https://doi.org/10.1016/j.brainres.2025.149973" class="pub-doi" target="_blank">doi: 10.1016/j.brainres.2025.149973</a>
           <span class="pmid">PMID: 41027526</span>
         </div>
@@ -143,15 +147,16 @@
     </div>
 
     <!-- 2024 — Mourtzi sleep & hippocampus (J Integr Neurosci, Aug 2024) -->
-    <div class="pub-item" data-tags="imaging sleep">
+    <div class="pub-item" data-tags="sleep wearables mri">
       <div class="pub-year-badge">2024</div>
       <div class="pub-content">
         <div class="pub-journal">Journal of Integrative Neuroscience</div>
         <div class="pub-title">Objective Sleep Function is Associated with Hippocampal Subfield Volumes in Community-Dwelling Adults</div>
         <div class="pub-authors">Mourtzi N, Tsapanou A, Morfakidou R, Angelopoulou G, Constantinides V, Ntanasi E, Mamalaki E, Yannakoulia M, Karavasilis E, Christidi F, Velonakis G, Scarmeas N.</div>
         <div class="pub-meta">
-          <span class="pub-tag imaging">Imaging</span>
+          <span class="pub-tag wearables">Wearables</span>
           <span class="pub-tag sleep">Sleep</span>
+          <span class="pub-tag mri">MRI</span>
           <a href="https://doi.org/10.31083/j.jin2308159" class="pub-doi" target="_blank">doi: 10.31083/j.jin2308159</a>
           <span class="pmid">PMID: 39207082</span>
         </div>
@@ -159,15 +164,15 @@
     </div>
 
     <!-- 2024 — Christidi food groups & white matter (Nutrients, Aug 2024) -->
-    <div class="pub-item" data-tags="imaging diet">
+    <div class="pub-item" data-tags="diet mri">
       <div class="pub-year-badge">2024</div>
       <div class="pub-content">
         <div class="pub-journal">Nutrients</div>
         <div class="pub-title">The Association between Individual Food Groups, Limbic System White Matter Tracts, and Episodic Memory: Initial Data from the Aiginition Longitudinal Biomarker Investigation of Neurodegeneration (ALBION) Study.</div>
         <div class="pub-authors">Christidi F, Drouka A, Brikou D, Mamalaki E, Ntanasi E, Karavasilis E, Velonakis G, Angelopoulou G, Tsapanou A, Gu Y, Yannakoulia M, Scarmeas N.</div>
         <div class="pub-meta">
-          <span class="pub-tag imaging">Imaging</span>
           <span class="pub-tag diet">Diet</span>
+          <span class="pub-tag mri">MRI</span>
           <a href="https://doi.org/10.3390/nu16162766" class="pub-doi" target="_blank">doi: 10.3390/nu16162766</a>
           <span class="pmid">PMID: 39203902</span>
         </div>
@@ -190,14 +195,14 @@
     </div>
 
     <!-- 2023 — Sampatakakis physical function (IJMS, Sep 2023) -->
-    <div class="pub-item" data-tags="imaging">
+    <div class="pub-item" data-tags="physical">
       <div class="pub-year-badge">2023</div>
       <div class="pub-content">
         <div class="pub-journal">International Journal of Molecular Sciences</div>
         <div class="pub-title">Objective Physical Function in the Alzheimer's Disease Continuum: Association with Cerebrospinal Fluid Biomarkers in the ALBION Study</div>
         <div class="pub-authors">Sampatakakis SN, Mamalaki E, Ntanasi E, Kalligerou F, Liampas I, Yannakoulia M, Gargalionis AN, Scarmeas N.</div>
         <div class="pub-meta">
-          <span class="pub-tag imaging">Biomarkers</span>
+          <span class="pub-tag physical">Physical Function</span>
           <a href="https://doi.org/10.3390/ijms241814079" class="pub-doi" target="_blank">doi: 10.3390/ijms241814079</a>
           <span class="pmid">PMID: 37762384</span>
         </div>
@@ -240,9 +245,9 @@
       <div class="pub-content">
         <div class="pub-journal">Medicina</div>
         <div class="pub-title">Initial Data and a Clinical Diagnosis Transition for the Aiginition Longitudinal Biomarker Investigation of Neurodegeneration (ALBION) Study</div>
-        <div class="pub-authors">o	Scarmeas N, Daskalaki A, Kalligerou F, Ntanasi E, Mamalaki E, Gargalionis AN, Patas K, Chatzipanagiotou S, Yannakoulia M, Constantinides VC.</div>
+        <div class="pub-authors">Scarmeas N, Daskalaki A, Kalligerou F, Ntanasi E, Mamalaki E, Gargalionis AN, Patas K, Chatzipanagiotou S, Yannakoulia M, Constantinides VC.</div>
         <div class="pub-meta">
-          <span class="pub-tag design">Study Data</span>
+          <span class="pub-tag design">Study Design</span>
           <a href="https://doi.org/10.3390/medicina58091179" class="pub-doi" target="_blank">doi: 10.3390/medicina58091179</a>
           <span class="pmid">PMID: 36143858</span>
         </div>
