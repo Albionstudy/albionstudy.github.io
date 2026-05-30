@@ -22,8 +22,8 @@ const NAV_HTML = `
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html" data-page="index.html">Home</a>
-  <a href="story.html" data-page="story.html">The ALBION study</a>
-  <a href="data.html" data-page="data.html">Participants &amp; Data</a>
+  <a href="story.html" data-page="story.html">About ALBION</a>
+  <a href="data.html" data-page="data.html">Data</a>
   <a href="team.html" data-page="team.html">Team</a>
   <a href="publications.html" data-page="publications.html">Publications</a>
   <a href="contact.html" class="mobile-menu-cta">Contact us</a>
@@ -48,7 +48,7 @@ const FOOTER_HTML = `
       <div class="footer-nav-group">
         <h4>Research</h4>
         <ul>
-          <li><a href="data.html">Participants &amp; Data</a></li>
+          <li><a href="data.html">Data</a></li>
           <li><a href="publications.html">Publications</a></li>
           <li><a href="data.html#biomarker-ns">Sample Biomarker Data</a></li>
         </ul>
