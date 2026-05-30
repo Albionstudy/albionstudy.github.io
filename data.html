@@ -90,7 +90,8 @@
         <li style="padding-left:12px;"><a href="#csf" style="font-size:0.82rem;">↳ Cerebrovascular Fluid analyses</a></li>
         <li style="padding-left:12px;"><a href="#blood" style="font-size:0.82rem;">↳ Blood</a></li>
         <li style="padding-left:12px;"><a href="#stool" style="font-size:0.82rem;">↳ Stool</a></li>
-        <li style="padding-left:12px;"><a href="#imaging" style="font-size:0.82rem;">↳ Neuroimaging &amp; EEG</a></li>
+        <li style="padding-left:12px;"><a href="#imaging" style="font-size:0.82rem;">↳ Magnetic Resonance Imaging</a></li>
+          <li style="padding-left:12px;"><a href="#electroencephalogram" style="font-size:0.82rem;">↳ Electroencephalogram</a></li>
         <li style="padding-left:12px;"><a href="#lifestyle" style="font-size:0.82rem;">↳ Wearables</a></li>
         <li style="padding-left:12px;"><a href="#genetics" style="font-size:0.82rem;">↳ Genetics</a></li>
         <li><a href="#biomarker-ns">Sample Sizes</a></li>
@@ -210,7 +211,7 @@
             var visits = [
               { time:'0 years', label:'0 yr', type:'full', badge:'Baseline Assessment',
                 forList: null,
-                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression','Lifestyle: sleep, leisure time activity, subjective cognitive complaints, physical activities','Anthropometrics','Objective Physical Measurements','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy','WatchPAT'],
+                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy','WatchPAT'],
                 note: null, phone: null },
               { time:'1.5 years', label:'1.5 yr', type:'sel', badge:'Selected participants',
                 forList: ['Neurological assessment','Neuropsychological assessment'],
@@ -218,24 +219,24 @@
                 note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
               { time:'3 years', label:'3 yr', type:'full', badge:'All participants',
                 forList: null,
-                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression','Lifestyle: sleep, leisure time activity, subjective cognitive complaints, physical activities','Anthropometrics','Objective Physical Measurements','EEG','Blood sample','Stool sample','Actigraphy','WatchPAT'],
+                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','EEG','Blood sample','Stool sample','Actigraphy'],
                 note: null, phone: null },
-              { time:'4.5 years', label:'4.5 yr', type:'sel', badge:'Selected participants',
-                forList: ['Age above 70','MCI diagnosis at previous assessment','Irrespectively of age and diagnosis have at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)'],
-                data: ['Neurological assessment','Neuropsychological assessment'],
-                note: null },
-              { time:'6 years', label:'6 yr', type:'full', badge:'All participants',
-                forList: null,
-                data: ['Same assessments as baseline'],
-                note: null, phone: null },
-              { time:'7.5 years', label:'7.5 yr', type:'sel', badge:'Selected participants',
-                forList: ['Age above 70','MCI diagnosis at previous assessment','Irrespectively of age and diagnosis have at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)'],
-                data: ['Neurological assessment','Neuropsychological assessment'],
-                note: null },
-              { time:'9 years', label:'9 yr', type:'full', badge:'All participants',
-                forList: null,
-                data: ['Same assessments as baseline'],
-                note: 'Lumbar puncture and MRI not included', phone: null }
+                { time:'4.5 years', label:'4.5 yr', type:'sel', badge:'Selected participants',
+                    forList: ['Neurological assessment','Neuropsychological assessment'],
+                    data: [],
+                    note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
+                { time:'6 years', label:'6 yr', type:'full', badge:'Baseline Assessment',
+                    forList: null,
+                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy','WatchPAT'],
+                    note: null, phone: null },
+                { time:'7.5 years', label:'7.5 yr', type:'sel', badge:'Selected participants',
+                    forList: ['Neurological assessment','Neuropsychological assessment'],
+                    data: [],
+                    note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
+                { time:'9 years', label:'9 yr', type:'full', badge:'All participants',
+                    forList: null,
+                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','EEG','Blood sample','Stool sample','Actigraphy'],
+                    note: null, phone: null }
             ];
             var current = 0;
 
@@ -349,6 +350,12 @@
           </tbody>
         </table>
 
+          <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Other Examinations</h4>
+          <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65;">Depression, anxiety and subjective cognitive complaints are assessed and the following scales are completed:</p>
+                  <div class="tag-list" style="margin-top:.8rem;">
+                    <span class="tag-item accent">NPI</span><span class="tag-item accent">HACHINSKI</span><span class="tag-item accent">UPDRS</span><span class="tag-item accent">IADL</span><span class="tag-item accent">CDR</span>
+                  </div>
+
         <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Diagnostic Consensus Meetings</h4>
         <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65;">Clinicians involved in ALBION perform regular diagnostic consensus meetings where neurologists and neuropsychologists review participants' data to establish diagnoses of dementia and MCI, following international criteria and guidelines.</p>
       </div>
@@ -359,16 +366,25 @@
         <div class="data-section" id="lifecycle-factors">
 <!--          <div class="section-label">Lifestyle Factors</div>-->
           <h2>Lifestyle Assessment</h2>
-          <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65; margin-bottom:1.2rem;">Various aspects of lifestyle including subjective cognitive complaints, depression, anxiety, leisure time activities, physical activity, sleep and diet are assessed with the use of appropriate questionnaires.</p>
-          <div class="tag-list">
-            <span class="tag-item">Subjective cognitive complaints</span>
-            <span class="tag-item">Depression</span>
-            <span class="tag-item">Anxiety</span>
-            <span class="tag-item">Leisure time activities</span>
-            <span class="tag-item">Physical activity</span>
-            <span class="tag-item">Sleep</span>
-          </div>
-          <p style="color:var(--ink-2); font-size:0.9rem; font-weight:300; line-height:1.65; margin-top:0.8rem;">All assessed with the use of appropriate questionnaires.</p>
+          <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.65; margin-bottom:1.2rem;">Various aspects of lifestyle including leisure time activities, physical activity, sleep and diet are assessed with the use of appropriate questionnaires.</p>
+<!--          <div class="tag-list">-->
+<!--            <span class="tag-item">Subjective cognitive complaints</span>-->
+<!--            <span class="tag-item">Depression</span>-->
+<!--            <span class="tag-item">Anxiety</span>-->
+<!--            <span class="tag-item">Leisure time activities</span>-->
+<!--            <span class="tag-item">Physical activity</span>-->
+<!--            <span class="tag-item">Sleep</span>-->
+<!--          </div>-->
+
+            <div class="tag-list" style="margin-top:.8rem;">
+                <span class="tag-item accent">>Subjective cognitive complaints</span><span class="tag-item accent">Depression</span><span class="tag-item accent">Anxiety</span>
+                <span class="tag-item accent">Leisure time activities</span><span class="tag-item accent">Physical activity</span>
+                <span class="tag-item accent">Sleep</span>
+            </div>
+
+
+
+            <p style="color:var(--ink-2); font-size:0.9rem; font-weight:300; line-height:1.65; margin-top:0.8rem;">All assessed with the use of appropriate questionnaires.</p>
         </div>
 
       <hr class="divider" style="margin-bottom:4rem;"/>
@@ -377,18 +393,18 @@
           <div class="data-section" id="diet">
 <!--            <div class="section-label">Nutritional data</div>-->
             <h2>Diet Assessment</h2>
-            <p>Dietary intake is assessed through four 24-h dietary recalls; some of them administered on-site and some by telephone. Three of the recalls refer to weekdays and one to a weekend day. Specifically, trained dieticians ask the participants to report in detail all foods and beverages consumed during the previous day, defined as the timeframe between waking up in the morning and going to bed at night, using the multiple pass approach. Recall data are analyzed in terms of nutrients using the dietary analysis software Nutritionist ProTM (2007, Axxya Systems, Texas, USA).</p>
+            <p>Dietary intake is assessed through four 24-h dietary recalls; some of them administered on-site and some by telephone.. Specifically, trained dieticians ask the participants to report in detail all foods and beverages consumed during the previous day, using the multiple pass approach. Recall data are analyzed in terms of nutrients using the dietary analysis software Nutritionist ProTM (2007, Axxya Systems, Texas, USA).</p>
 
             <div class="content-2col">
               <div>
                 <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem;">Additional information recorded</h4>
                 <div class="tag-list">
-                  <span class="tag-item">Water intake (previous day)</span>
-                  <span class="tag-item">Dietary supplement use</span>
-                  <span class="tag-item">Weight-loss diet status</span>
-                  <span class="tag-item">Eating time &amp; location</span>
-                  <span class="tag-item">Concurrent activities</span>
-                  <span class="tag-item">Eating companion</span>
+                  <span class="tag-item accent">Water intake (previous day)</span>
+                  <span class="tag-item accent">Dietary supplement use</span>
+                  <span class="tag-item accent">Weight-loss diet status</span>
+                  <span class="tag-item accent">Eating time &amp; location</span>
+                  <span class="tag-item accent">Concurrent activities</span>
+                  <span class="tag-item accent">Eating companion</span>
                 </div>
               </div>
               <div>
@@ -402,8 +418,8 @@
                 </div>
               </div>
             </div>
-            <p style="color:var(--ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Food groups assessed include: dairy products, cereals, fruits, vegetables, meat, fish, legumes, added fats, alcoholic beverages, stimulants, and sweets.</p>
-            <p style="color:var(--ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Eating habits/behaviors assessed include: fermented foods, ultra-processed foods, dietary variety, variety of vegetables and fruits</p>
+<!--            <p style="color:var(&#45;&#45;ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Food groups assessed include: dairy products, cereals, fruits, vegetables, meat, fish, legumes, added fats, alcoholic beverages, stimulants, and sweets.</p>-->
+<!--            <p style="color:var(&#45;&#45;ink-2); font-size:.9rem; font-weight:300; line-height:1.65; margin-top:1rem;">Eating habits/behaviors assessed include: fermented foods, ultra-processed foods, dietary variety, variety of vegetables and fruits</p>-->
           </div>
           <hr class="divider" style="margin-bottom:4rem;"/>
 
@@ -679,10 +695,10 @@
           <!-- IMAGING -->
           <div class="data-section" id="imaging">
 <!--            <div class="section-label">Brain imaging</div>-->
-            <h2>Magnetic Resonance Imaging (MRI) &amp; Electroencephalogram (EEG)</h2>
+            <h2>Magnetic Resonance Imaging</h2>
 
             <div style="margin-bottom:2.5rem;">
-              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Magnetic Resonance Imaging</h4>
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">MRI</h4>
               <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.2rem;">All participants undergo a whole-brain imaging on a 3T Philips Achieva-Tx MR scanner (Philips, Best, The Netherlands) equipped with an eight-channel head coil. The imaging protocol contains basic clinical and research used sequences and, among others, information on the following is extracted:</p>
               <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
                 <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">Atrophy (Global & Atrophy)</strong></span></li>
@@ -694,18 +710,33 @@
               </ul>
             </div>
 
-            <div>
-              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Electroencephalogram</h4>
-              <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">Electroencephalogram with 19 active electrodes in the “eyes closed” and “eyes open” conditions. Evaluated markers include:</p>
-<!--              <p style="color:var(&#45;&#45;ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:.8rem;">EEG data are analysed in two ways:</p>-->
-              <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
-                  <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">frequency & amplitude of the posterior dominant rhythm (α rhythm)</strong></span></li>
-                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">power of individual electrodes in the δ, θ, α, β & γ frequency bands</strong></span></li>
-                  <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">interelectrode connectivity in the same bands</strong></span></li>
-              </ul>
-            </div>
+<!--            <div>-->
+<!--              <h4 style="font-family:'DM Serif Display',serif; color:var(&#45;&#45;accent); margin-bottom:.8rem; font-size:1.15rem;">Electroencephalogram</h4>-->
+<!--              <p style="color:var(&#45;&#45;ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">Electroencephalogram with 19 active electrodes in the “eyes closed” and “eyes open” conditions. Evaluated markers include:</p>-->
+<!--&lt;!&ndash;              <p style="color:var(&#45;&#45;ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:.8rem;">EEG data are analysed in two ways:</p>&ndash;&gt;-->
+<!--              <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">-->
+<!--                  <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(&#45;&#45;accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(&#45;&#45;ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(&#45;&#45;ink);">frequency & amplitude of the posterior dominant rhythm (α rhythm)</strong></span></li>-->
+<!--                <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(&#45;&#45;accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(&#45;&#45;ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(&#45;&#45;ink);">power of individual electrodes in the δ, θ, α, β & γ frequency bands</strong></span></li>-->
+<!--                  <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(&#45;&#45;accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(&#45;&#45;ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(&#45;&#45;ink);">interelectrode connectivity in the same bands</strong></span></li>-->
+<!--              </ul>-->
+<!--            </div>-->
 
           </div>
+        <hr class="divider" style="margin-bottom:4rem;"/>
+        <div class="data-section" id="electroencephalogram">
+            <h2>Electroencephalogram</h2>
+            <div>
+                <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">EEG</h4>
+                <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">Electroencephalogram with 19 active electrodes in the “eyes closed” and “eyes open” conditions. Evaluated markers include:</p>
+                <!--              <p style="color:var(&#45;&#45;ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:.8rem;">EEG data are analysed in two ways:</p>-->
+                <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
+                    <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">frequency & amplitude of the posterior dominant rhythm (α rhythm)</strong></span></li>
+                    <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">power of individual electrodes in the δ, θ, α, β & γ frequency bands</strong></span></li>
+                    <li style="display:flex; gap:8px; align-items:flex-start;"><span style="color:var(--accent); flex-shrink:0; margin-top:2px;">→</span><span style="color:var(--ink-2); font-size:.92rem; font-weight:300; line-height:1.6;"><strong style="font-weight:500; color:var(--ink);">interelectrode connectivity in the same bands</strong></span></li>
+                </ul>
+            </div>
+
+        </div>
 
       <hr class="divider" style="margin-bottom:4rem;"/>
 
@@ -787,7 +818,7 @@
         <div style="margin-top:2rem; background:var(--paper-2); border-radius:var(--radius-lg); padding:1.5rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
           <div>
             <div style="font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--ink); margin-bottom:.3rem;">Sample Sizes per Biomarker</div>
-              <div style="font-size:.85rem; color:var(--ink-3); font-weight:300;">Download the dataset showing in detail which biomarkers have been <br/>measured for each participant.</div>
+              <div style="font-size:.85rem; color:var(--ink-3); font-weight:300;">Download the dataset showing in detail which biomarkers have been measured <br/> for each participant.</div>
           </div>
           <a href="ALBION_Biomarkers.xlsx" download style="display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:white; padding:10px 22px; border-radius:100px; text-decoration:none; font-size:.88rem; font-weight:500; transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
