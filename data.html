@@ -12,7 +12,7 @@
     </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Participants &amp; Data — ALBION Study</title>
+  <title>Data — ALBION Study</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
     .data-body { max-width: var(--max); margin: 0 auto; padding: 5vw; }
@@ -220,7 +220,7 @@
             var visits = [
               { time:'0 years', label:'0 yr', type:'full', badge:'Baseline Assessment',
                 forList: null,
-                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy','WatchPAT'],
+                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','Magnetic Resonance Imaging ','Electroencephalogram','Lumbar puncture','Blood sample','Stool sample','Actigraphy','Sleep Study Device'],
                 note: null, phone: null },
               { time:'1.5 years', label:'1.5 yr', type:'sel', badge:'Selected participants',
                 forList: ['Neurological assessment','Neuropsychological assessment'],
@@ -228,7 +228,7 @@
                 note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
               { time:'3 years', label:'3 yr', type:'full', badge:'All participants',
                 forList: null,
-                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','EEG','Blood sample','Stool sample','Actigraphy'],
+                data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','Electroencephalogram','Blood sample','Stool sample','Actigraphy'],
                 note: null, phone: null },
                 { time:'4.5 years', label:'4.5 yr', type:'sel', badge:'Selected participants',
                     forList: ['Neurological assessment','Neuropsychological assessment'],
@@ -236,7 +236,7 @@
                     note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
                 { time:'6 years', label:'6 yr', type:'full', badge:'Baseline Assessment',
                     forList: null,
-                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','MRI','EEG','Lumbar puncture','Blood sample','Stool sample','Actigraphy','WatchPAT'],
+                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activity, diet, physical activities','Anthropometrics','Objective Physical Measurements','Magnetic Resonance Imaging ','Electroencephalogram','Lumbar puncture','Blood sample','Stool sample','Actigraphy','Sleep Study Device'],
                     note: null, phone: null },
                 { time:'7.5 years', label:'7.5 yr', type:'sel', badge:'Selected participants',
                     forList: ['Neurological assessment','Neuropsychological assessment'],
@@ -244,7 +244,7 @@
                     note: null, phone: 'Performed for those with age above 70 years or MCI diagnosis at a previous assessment or at least a pathological ratio (ptau/A&#946;42 or tau/A&#946;42 ratio)' },
                 { time:'9 years', label:'9 yr', type:'full', badge:'All participants',
                     forList: null,
-                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','EEG','Blood sample','Stool sample','Actigraphy'],
+                    data: ['Neurological assessment','Neuropsychological assessment','Other Clinical Assessments: anxiety, depression, subjective cognitive complaints','Lifestyle assessments: sleep, leisure time activities, diet, physical activities','Anthropometrics','Objective Physical Measurements','Electroencephalogram','Blood sample','Stool sample','Actigraphy'],
                     note: null, phone: null }
             ];
             var current = 0;
@@ -386,7 +386,7 @@
 <!--          </div>-->
 
             <div class="tag-list" style="margin-top:.8rem;">
-                <span class="tag-item accent">>Subjective cognitive complaints</span><span class="tag-item accent">Depression</span><span class="tag-item accent">Anxiety</span>
+                <span class="tag-item accent">Subjective cognitive complaints</span><span class="tag-item accent">Depression</span><span class="tag-item accent">Anxiety</span>
                 <span class="tag-item accent">Leisure time activities</span><span class="tag-item accent">Physical activity</span>
                 <span class="tag-item accent">Sleep</span>
             </div>
@@ -737,7 +737,7 @@
               </h2>
 
             <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1.5rem;">
-                Participants provide a stool sample after receiving a standardized stool collection kit. For a subsample of the participants, stool (for selected participant subsamples) are processed for the following analyses:</p>
+                Participants provide a stool sample after receiving a standardized stool collection kit. For a subsample of the participants, stool are processed for the following analyses:</p>
 
             <ul style="list-style:none; display:flex; flex-direction:column; gap:.7rem;">
               <li style="display:flex; gap:8px; align-items:flex-start;">
@@ -854,7 +854,7 @@
             </div>
 
             <div>
-              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">WatchPAT™ 300</h4>
+              <h4 style="font-family:'DM Serif Display',serif; color:var(--accent); margin-bottom:.8rem; font-size:1.15rem;">Sleep Study Device</h4>
               <p style="color:var(--ink-2); font-size:.95rem; font-weight:300; line-height:1.75; margin-bottom:1rem;">The WatchPAT™ 300 device has been used (for selected participant subsamples). Watchpat data exports include an automated report with more than 80 variables regarding sleep parameters.</p>
             </div>
 
@@ -935,7 +935,6 @@
 
       </div>
 
-    2
 
       <!-- GENETICS -->
 
