@@ -30,6 +30,18 @@
     .pi-info h2 { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: white; margin-bottom: 0.3rem; }
     .pi-info .pi-role { font-size: 0.88rem; color: var(--accent-mid); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.8rem; }
     .pi-info p { color: rgba(248,247,244,.6); font-size: 0.95rem; font-weight: 300; line-height: 1.65; max-width: 60ch; }
+    .pi-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--accent);
+    }
+
+    a {
+      color: #38bdf8;
+    }
 
     /* Modal overlay */
     .modal-overlay {
@@ -40,6 +52,13 @@
       overflow-y: auto;
     }
     .modal-overlay.open { display: flex; animation: fadeIn .2s ease; }
+
+    @media(max-width:600px) {
+      .pi-photo {
+        width: 90px;
+        height: 90px;
+      }
+    }
 
     .modal {
       background: white; border-radius: var(--radius-lg);
@@ -124,25 +143,137 @@
 
   <div class="section-label">Principal Investigator</div>
   <div class="pi-card" onclick="openModal('ns')">
-    <div class="pi-avatar">NS</div>
+    <img src="bio/Scarmeas.jpg" alt="Nikolaos Scarmeas" class="pi-photo">
     <div class="pi-info">
       <h2>Nikolaos Scarmeas</h2>
       <div class="pi-role">Principal Investigator</div>
-      <p style="max-width:100%;">Dr Scarmeas is currently Professor of Neurology at the Medical School of the National and Kapodistrian University of Athens, while he maintains a faculty position at Columbia University in New York too. Dr Scarmeas shares his research time between the two institutions. His educational and clinical work includes seeing patients of older age with dementias and cognitive dysfunction, supervising and teaching of Medical students and Neurology residents at National and Kapodistrian University of Athens.</p>
+      <p style="max-width:100%;">Nikolaos Scarmeas is a Professor of Neurology Professor of Neurology at the Medical School of the National and Kapodistrian
+        University of Athens, while he maintains an Academic affiliation at Columbia University in New York.
+        Dr Scarmeas’ research has focused on cognitive reserve and the factors that help protect the brain against
+        the effects of Alzheimer’s disease and aging, including education, intellectually demanding occupations,
+        and engagement in cognitive, social, and physical activities. He has also made significant contributions
+        to understanding the relationship between dietary patterns, particularly the Mediterranean diet, and dementia, cognitive decline, and healthy aging.
+        For more information, please see <a href="https://www.ncbi.nlm.nih.gov/pubmed?cmd=search&term=Scarmeas+N%5Bau%5D&dispmax=50" target="_blank">here</a>.</p>
+
     </div>
   </div>
 
   <div class="section-label" style="margin-top:2rem;">Core Team</div>
 
-  <b>TBA</b>
+
+
+  <div class="pi-card" onclick="openModal('my')">
+    <img src="bio/Yannakoulia_Dec2025_2.jpg" alt="Mary Yannakoulia" class="pi-photo">
+    <div class="pi-info">
+      <h2>Mary Yannakoulia</h2>
+      <p style="max-width:100%;">Mary Yannakoulia is a Professor of Nutrition and Eating Behaviour in the Department of Nutrition and Dietetics, Harokopio University, Athens, Greece. Her research interests are related to factors that influence human eating behavior, adherence to diet and lifestyle interventions, as well as diet and aging/cognitive decline. Dr Yannakoulia has served as a co-investigator responsible for the nutritional assessment in the HELIAD and ALBION prospective studies, both of which examine associations between diet and cognitive decline or related biomarkers. She is also leading the nutrition component of the GINGER intervention, a multidomain dementia-prevention trial conducted in Greece.</p>
+    </div>
+  </div>
+
+
+  <div class="pi-card" onclick="openModal('fk')">
+    <img src="bio/kalligerou_2.png" alt="Faidra Kalligerou" class="pi-photo">
+    <div class="pi-info">
+      <h2>Faidra Kalligerou</h2>
+      <p style="max-width:100%;">Dr. Faidra Kalligerou graduated from the Medical School of the University of Patras and specialized in Neurology at 251 General Airforce Hospital. She received her PhD from the Medical School of the National and Kapodistrian University of Athens. She currently works as a neurologist at the Athens Alzheimer Association and is a Research Fellow at Aiginitio Hospital.</p>
+    </div>
+  </div>
+
+
+  <div class="pi-card" onclick="openModal('ad')">
+    <img src="bio/Daskalaki.jpg" alt="Argyro Daskalaki" class="pi-photo">
+    <div class="pi-info">
+      <h2>Argyro Daskalaki</h2>
+      <p style="max-width:100%;">Dr. Argyro Daskalaki is a Neurologist and graduate of the School of Medicine of the National and Kapodistrian University of Athens. She also graduated with distinction from the University's postgraduate programme in Clinical Neuropsychology. She undertook postgraduate clinical training in the United Kingdom, working as a resident physician at Guy's and St Thomas' NHS Foundation Trust, King's College Hospital NHS Foundation Trust, and St George's University Hospitals NHS Foundation Trust in London. She subsequently completed her specialist training in Neurology at the Neurology Department of Evangelismos General Hospital in Athens.</p>
+    </div>
+  </div>
+
+
+  <div class="pi-card" onclick="openModal('')">
+    <img src="bio/uagkou.png" alt="Nikos Giagkou" class="pi-photo">
+    <div class="pi-info">
+      <h2>Nikos Giagkou</h2>
+      <p style="max-width:100%;">Nikos Giagkou is a neurologist with a clinical and research interest in cognitive disorders and neurodegenerative diseases in general. Since 2025, he has been a member of the Memory Clinic team at Aiginitio Hospital. He enjoys combining clinical neurology with research, and he is particularly interested in approaches that may improve the early diagnosis of neurodegenerative disorders.</p>
+    </div>
+  </div>
+
+
+  <div class="pi-card" onclick="openModal('en')">
+    <img src="bio/danasi.png" alt="Eva Ntanasi" class="pi-photo">
+    <div class="pi-info">
+      <h2>Eva Ntanasi</h2>
+      <p style="max-width:100%;">Eva Ntanasi is a Clinical Neuropsychologist with expertise in dementia, cognitive aging, and neurodegenerative disorders.
+        She holds a PhD from Harokopio University and an MSc in Clinical Neuropsychology from the National and Kapodistrian University of Athens.
+        Since 2020, she has been collaborating with the Memory Clinic of Aiginition Hospital, specializing in neuropsychological assessment and dementia research.
+        For more information regarding Ms’ Ntanasi publications, please see <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=ntanasi+e" target="_blank">here</a>. </p>
+    </div>
+  </div>
+
+  <div class="pi-card" onclick="openModal('em')">
+    <img src="bio/Mamalaki.png" alt="Eirini Mamalaki" class="pi-photo">
+    <div class="pi-info">
+      <h2>Eirini Mamalaki</h2>
+      <p style="max-width:100%;">Eirini Mamalaki is a Dietician-Nutritionist, MSc, PhD. Currently, she is a post-doc researcher in the Memory Clinic of the 1st Department of Neurology
+        of the National and Kapodistrian University of Athens (Aiginiteio Hospital). She has participated in many research studies concerning eating habits across the
+        lifespan and the role of lifestyle in preventing cognitive decline.
+        For more information regarding Dr Mamalaki’s publications, please see <a href="https://pubmed.ncbi.nlm.nih.gov/?term=mamalaki%20eirini&page=3" target="_blank">here</a>.</p>
+    </div>
+  </div>
+
+  <div class="pi-card" onclick="openModal('gt')">
+    <img src="bio/photo_Tsilikopoulou2.jpg" alt="Georgia Tsilikopoulou" class="pi-photo">
+    <div class="pi-info">
+      <h2>Georgia Tsilikopoulou</h2>
+      <p style="max-width:100%;">Georgia Tsilikopoulou is a licensed Psychologist specialized in Clinical
+        Neuropsychology. After receiving her bachelor’s degree in Psychology
+        from the National and Kapodistrian University of Athens (NKUA), she
+        completed a three-year master's degree program in Clinical
+        Neuropsychology at the Medical School of NKUA and the Health Science
+        Center of University of Texas (joint program). Her internship took place at
+        the 1st Department of Neurology and the 1st Department of Psychiatry of
+        Eginitio University Hospital, NKUA, as well as at the Pediatric Neurology
+        Department of Pendeli Children’s Hospital.</p>
+    </div>
+  </div>
+
+  <div class="pi-card" onclick="openModal('')">
+    <img src="bio/fotopoulou2.jpg" alt="Angeliki Fotopoulou" class="pi-photo">
+    <div class="pi-info">
+      <h2>Angeliki Fotopoulou</h2>
+      <p style="max-width:100%;">Angeliki Fotopoulou is a graduate of Nursing of National and Kapodistrian University of Athens (2012) and owns a master diploma of “Management and Administration of Health Care Services” (2014). In 2012 completed her graduate training in “Educational Pathologic Clinic B” of Attikon University Hospital. Since 2013 she has been employed as a nurse in various private hospitals in Athens, specialized in Intensive Care Units owing a manager degree in the last few years. At the same time she was involved in adults’ clinical education and took part in clinical trials as clinical coordinator. At present, she is a member of Cognitive Disorders Clinic of Eginition University Hospital. Her clinical and research interests focus on dementia and cognitive function.</p>
+    </div>
+  </div>
+
+
+  <div class="pi-card" onclick="openModal('')">
+    <img src="bio/petroulaki2.png" alt="Aikaterini Petroulaki" class="pi-photo">
+    <div class="pi-info">
+      <h2>Aikaterini Petroulaki</h2>
+      <p style="max-width:100%;">Since 2023, Aikaterini Petroulaki she has been a member of the research team at the Memory Clinic and Cognitive Disorders Unit of the Aiginition University Hospital, where she is responsible for the coordination and administrative support of clinical and research studies. Her duties include organizing and monitoring study procedures, managing communication with participants and collaborating institutions, and ensuring the smooth operation of the Memory Clinic. In parallel, she serves as Study Coordinator for the Albion study, which is conducted as part of the Clinic’s research activities.</p>
+    </div>
+  </div>
+
+  <div class="pi-card" onclick="openModal('')">
+    <img src="bio/Briko2.jpg" alt="Dora Brikou" class="pi-photo">
+    <div class="pi-info">
+      <h2>Dora Brikou</h2>
+      <p style="max-width:100%;">Dora Brikou is a dietitian-nutritionist and holds a BSc (2013), an MSc (2015) and a PhD (2026) from Harokopio University. She has over 10 years of experience as a research associate, contributing to 10 funded national and European research projects. Her work has resulted in 11 scientific publications in peer-reviewed journals. Her scientific interests and clinical expertise focus on the assessment of dietary intake and meal patterns, with particular emphasis on their role in weight management and cognitive health.</p>
+    </div>
+  </div>
+
+  <div class="pi-card" onclick="openModal('ard')">
+    <img src="bio/Drouka.jpg" alt="Archontoula Drouka" class="pi-photo">
+    <div class="pi-info">
+      <h2>Archontoula Drouka</h2>
+      <p style="max-width:100%;">Archontoula Drouka is a PhD candidate at the Department of Nutrition and Dietetics, School of Health Sciences and Education at Harokopio University of Athens. She holds a Bachelor’s degree in Nutrition and Dietetics (2019) and an MSc in Clinical Nutrition and Dietetics (2021). Her research focuses on the role of diet and lifestyle in cognitive function and early biomarkers of dementia, with particular emphasis on preventive approaches across the lifespan.</p>
+    </div>
+  </div>
+
+
+
 
 <!--  <div class="team-grid">-->
-<!--    <div class="team-card" onclick="openModal('my')">-->
-<!--      <div class="avatar">MY</div>-->
-<!--      <h3>Mary Yannakoulia</h3>-->
-<!--      <div class="role">Co-Investigator</div>-->
-<!--      <div class="affil">Nutritional Science &amp; Diet</div>-->
-<!--    </div>-->
+<!--    -->
 <!--    <div class="team-card" onclick="openModal('fk')">-->
 <!--      <div class="avatar">FK</div>-->
 <!--      <h3>Fotini Kalligerou</h3>-->
@@ -243,33 +374,33 @@
   const members = {
     ns: {
       initials: 'NS', name: 'Nikolaos Scarmeas', role: 'Principal Investigator',
-      bio: 'His research interests have started from the topic of cognitive reserve (i.e. how higher IQ, education, more demanding occupational attainments, or more engagement in cognitive-social-physical leisure - lifestyle activities – physical activities etc can help older adults cope better with the damage caused to their brains by AD and aging and therefore reduce their risk for dementia and slow down their rates of cognitive and functional decline). He subsequently developed a special interest in the contribution of diet (in particular composite dietary patterns such as a Mediterranean-type diet and others) as well as the biological mechanisms of this contribution in dementias and healthy aging. He has been addressing his research (and additional ones, i.e. APOE related etc) using clinical, epidemiological and imaging (PET, MRI etc) methodological approaches (see full publication record for more details). Dr Scarmeas has been the Principal Investigator in studies funded by either the Alzheimer\'s Association (IIRG) or the National Institute of Health – National Institute of Aging in the US and a Co-Investigator in multiple others. His research work has resulted in >290 original PubMed publications in highly esteemed journals (>20500 Scopus citations, Scopus h-index = 76) and multiple presentations in internationally acclaimed scientific conferences - meetings. He has been invited to review for about 300 international scientific journals and 49 international funding agencies from the Americas, Europe, Oceania etc, including internationally renowned organizations such as the Alzheimer’s Association, the US National Institute of Health, the European Union programs (i.e. Marie Curie, European Research Council), the Wellcome Trust in UK etc.',
-      tags: ['Neurology', 'Alzheimer\'s Disease', 'Biomarkers', 'Epidemiology', 'Neuroimaging']
+      bio: 'Dr Scarmeas has been the Principal Investigator in studies funded, among others by the Alzheimer\'s Association and the NIH-NIA, and a Co-Investigator in multiple others. His research work has resulted in more than 300 original PubMed publications in international journals and multiple presentations in internationally acclaimed scientific conferences – meetings, accumulating over 56,500 citations and an h-index of 106. He reviews for multiple international scientific journals and international funding agencies including the Alzheimer’s Association, the NIH, the European Union programs (i.e. Marie Curie, European Research Council, Horizon programs) etc.',
+      tags: []
     },
     my: {
-      initials: 'MY', name: 'Mary Yannakoulia', role: 'Co-Investigator',
-      bio: 'Professor of Nutritional Science at Harokopio University of Athens. Her work at ALBION focuses on dietary assessment and the relationship between nutritional patterns — including the Mediterranean and MIND diets — and cognitive health outcomes.',
-      tags: ['Nutritional Science', 'Dietary Assessment', 'Mediterranean Diet', 'MIND Diet']
+      initials: 'MY', name: 'Mary Yannakoulia', role: '',
+      bio: 'She has co-authored >340 scientific publications in highly esteemed journals (including New England Journal of medicine, Lancet Neurology, Metabolism, Heart) (H-index = 55) and presented her research in in international scientific conferences - meetings.In 2009 she received a Fulbright research award to study associations between diet and metabolic parameters in Mediterranean and non-Mediterranean populations and in 2023 the Honorary European Dietetic Fellowship Award 2023 from the European Federation of Dietetic Associations. From 2013 to 2021, she was the Representative of Greece in the High-Level Group for Nutrition and Physical Activity of the European Commission, whereas in 2017-- 2022 has been the President of the National (Greek) Nutrition Policy Committee. She is member of the Editorial board of Metabolism (Elsevier).',
+      tags: []
     },
     fk: {
-      initials: 'FK', name: 'Fotini Kalligerou', role: 'Researcher',
-      bio: 'Responsible for clinical assessments and neuropsychological evaluations within the ALBION cohort. She has been involved in the study since its earliest phases and contributed to the initial study design publications.',
-      tags: ['Clinical Assessment', 'Neuropsychology', 'Study Design']
+      initials: 'FK', name: 'Faidra Kalligerou', role: '',
+      bio: 'She has participated in several international and greek conferences with announcements and presentations. She is involved in Greek and international research programs on dementia and neurodegenerative diseases. Her clinical and research interest is focused on neurodegenerative diseases of the brain and in particular on the biological markers of dementia and the prevention of Alzheimer\'s disease.',
+      tags: []
     },
     ad: {
-      initials: 'AD', name: 'Aikaterini Daskalaki', role: 'Researcher',
-      bio: 'Coordinates clinical data collection and participant follow-up at the Cognitive Disorders Outpatient Clinic. Her work ensures the consistency and quality of longitudinal data across all ALBION visits.',
-      tags: ['Clinical Coordination', 'Data Quality', 'Follow-up']
+      initials: 'AD', name: 'Argyro Daskalaki', role: '',
+      bio: 'Dr. Daskalaki was a founding member of the Memory Clinic of the Athens Polyclinic. Since 2014, she has been actively involved in the Specialized Clinic for Cognitive Disorders at the 1st  Department of Neurology of Aiginiteio Hospital, where she has served as an external collaborator since 2020. Her clinical and research interests focus on dementia, mild cognitive impairment, and other neurodegenerative disorders. She currently participates as a Sub-Investigator in clinical research studies involving Mild Cognitive Impairment (MCI) and early-stage dementia. In her daily practice, Dr. Daskalaki is committed to delivering evidence-based, patient-centred neurological care of the highest standard, promoting active patient engagement and shared decision-making throughout the diagnostic and therapeutic process.',
+      tags: []
     },
     en: {
-      initials: 'EN', name: 'Eva Ntanasi', role: 'Researcher',
-      bio: 'Contributes to both neuropsychological assessment and biomarker analysis within ALBION. Her research interests include cognitive trajectories, lifestyle determinants of brain health, and the relationship between biomarker profiles and clinical outcomes.',
-      tags: ['Neuropsychology', 'Biomarkers', 'Cognitive Trajectories', 'Lifestyle']
+      initials: 'EN', name: 'Eva Ntanasi', role: '',
+      bio: 'Her research focuses on Alzheimer’s disease, dementia and cognitive decline prevention. She has participated in numerous national and European research projects and has served as a cognitive rater and study coordinator in multiple international clinical trials on Alzheimer’s disease.',
+      tags: []
     },
     gt: {
-      initials: 'GT', name: 'Georgia Tsilikopoulou', role: 'Researcher',
-      bio: 'Involved in the day-to-day coordination of the ALBION study, including participant scheduling, protocol adherence, and study logistics at Aiginiteio Hospital.',
-      tags: ['Study Coordination', 'Logistics', 'Protocol Management']
+      initials: 'GT', name: 'Georgia Tsilikopoulou', role: '',
+      bio: 'Since 2014, she has been working in private practice as a clinical neuropsychologist, providing neuropsychological assessment and intervention services to both adults and children. Since September 2021, she has also been a member of the Cognitive Disorders Clinic of Eginitio University Hospital, NKUA where she contributes to both clinical care and research activities. Her clinical and research interests focus on neurodegenerative and neurodevelopmental disorders.',
+      tags: []
     },
     af: {
       initials: 'AF', name: 'Aggeliki Fotopoulou', role: 'Researcher',
@@ -277,12 +408,12 @@
       tags: ['Data Management', 'Database', 'Data Integrity']
     },
     em: {
-      initials: 'EM', name: 'Efthimia Mamalaki', role: 'Researcher',
-      bio: 'Conducts dietary assessments and lifestyle evaluations for ALBION participants, including 24-hour dietary recalls and questionnaire administration. Her research examines the role of nutrition and daily habits in cognitive health.',
-      tags: ['Diet Assessment', 'Lifestyle', '24h Dietary Recall', 'Cognitive Health']
+      initials: 'EM', name: 'Eirini Mamalaki', role: '',
+      bio: 'Her research interests focus on eating behavior and eating habits, on lifestyle and their relation with cognitive health of older people. She has published >30 scientific articles in international peer review journals and >25 communications in conferences.',
+      tags: []
     },
     vp: {
-      initials: 'VP', name: 'Vicky Petroulaki', role: 'Researcher',
+      initials: 'VP', name: 'Vicky Petroulaki', role: '',
       bio: 'Performs clinical assessments and neurological examinations as part of the ALBION evaluation protocol, contributing to the standardised clinical characterisation of participants.',
       tags: ['Clinical Assessments', 'Neurology', 'Participant Evaluation']
     },
@@ -296,10 +427,11 @@
       bio: 'A nutritional scientist whose research within ALBION focuses on eating patterns, meal timing, and dietary behaviours in relation to cognitive performance and Alzheimer\'s disease biomarkers. She has co-authored multiple ALBION publications on diet and cognition.',
       tags: ['Nutritional Science', 'Eating Patterns', 'Meal Timing', 'Cognition']
     },
-    adr: {
-      initials: 'AD', name: 'Archontoula Drouka', role: 'Researcher',
-      bio: 'Investigates the associations between dietary patterns — including alcohol intake and adherence to the MIND diet — and CSF biomarkers of Alzheimer\'s disease. She has contributed several ALBION publications on diet and neurodegeneration biomarkers.',
-      tags: ['Diet', 'CSF Biomarkers', 'MIND Diet', 'Alcohol & Cognition']
+    ard: {
+      initials: 'AD', name: 'Archontoula Drouka', role: '',
+      bio: 'Since 2021 she has been collaborating with the Department of Nutrition and Dietetics at Harokopio University on research projects related to dementia prevention, as well as the development of effective strategies for preventing childhood obesity. At the same time, she collaborates with the Medical School of the National and Kapodistrian University of Athens as an external associate in studies on the preventive management of modifiable risk factors for Alzheimer’s disease and in clinical trials aiming to address the disease.' +
+              ' Her scientific work includes publications in peer reviewed international journals, and she has presented her research at national and international conferences.',
+      tags: []
     }
   };
 
